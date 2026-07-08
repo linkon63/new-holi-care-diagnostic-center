@@ -3,42 +3,21 @@
 import React, { useState } from "react";
 import { Send } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import {
+  ContactFormData,
+  initialContactForm,
+  handleContactInput,
+  submitContactForm,
+} from "@/utils/contact";
 
 export default function Contact() {
   const { t, language } = useLanguage();
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    phone: "",
-    email: "",
-    message: "",
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const thankYou = language === "bn" 
-      ? `ধন্যবাদ ${formData.firstName}! আপনার বার্তাটি সফলভাবে পাঠানো হয়েছে। আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।`
-      : `Thank you ${formData.firstName}! Your message has been sent successfully. We will contact you soon.`;
-    alert(thankYou);
-    setFormData({
-      firstName: "",
-      lastName: "",
-      phone: "",
-      email: "",
-      message: "",
-    });
-  };
+  const [formData, setFormData] = useState<ContactFormData>(initialContactForm);
 
   return (
-    <section id="contact" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-background">
+    <section id="contact" className="container py-20 bg-background">
       <div className="bg-white rounded-[2.5rem] p-8 md:p-12 lg:p-16 border border-border/40 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        
-        {/* Left Info Column */}
+
         <div className="lg:col-span-5 flex flex-col justify-between h-full items-start text-left space-y-8 lg:space-y-16">
           <div className="space-y-4">
             <span className="text-sm font-black text-emerald-800 bg-accent/30 px-4 py-1.5 rounded-full uppercase tracking-wider">
@@ -53,12 +32,11 @@ export default function Contact() {
             </h2>
           </div>
 
-          {/* Support Agent Card */}
           <div className="bg-[#f2f4f7] rounded-2xl p-5 flex items-center space-x-4 border border-border/50 shadow-xs max-w-xs w-full">
             <div className="w-12 h-12 rounded-full overflow-hidden border border-accent shrink-0">
               <img
                 src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=150"
-                alt="सहायতা কর্মী"
+                alt="সহায়তা কর্মী"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -73,18 +51,16 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Right Form Column */}
         <div className="lg:col-span-7">
-          <form onSubmit={handleSubmit} className="space-y-8">
-            
-            {/* Grid for First/Last Name */}
+          <form onSubmit={(e) => submitContactForm(e, formData, language, setFormData)} className="space-y-8">
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div className="flex flex-col text-left space-y-2">
                 <label className="text-xs font-bold text-muted-foreground/80 uppercase tracking-wider">{t.contactLabelFirstName}</label>
                 <input
                   name="firstName"
                   value={formData.firstName}
-                  onChange={handleInputChange}
+                  onChange={(e) => handleContactInput(e, setFormData)}
                   placeholder={t.contactPlaceholderFirstName}
                   required
                   className="w-full border-0 border-b border-border bg-transparent py-2.5 focus:outline-none focus:border-foreground text-sm font-semibold transition-all rounded-none px-0"
@@ -95,7 +71,7 @@ export default function Contact() {
                 <input
                   name="lastName"
                   value={formData.lastName}
-                  onChange={handleInputChange}
+                  onChange={(e) => handleContactInput(e, setFormData)}
                   placeholder={t.contactPlaceholderLastName}
                   required
                   className="w-full border-0 border-b border-border bg-transparent py-2.5 focus:outline-none focus:border-foreground text-sm font-semibold transition-all rounded-none px-0"
@@ -103,14 +79,13 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Grid for Phone/Email */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div className="flex flex-col text-left space-y-2">
                 <label className="text-xs font-bold text-muted-foreground/80 uppercase tracking-wider">{t.contactLabelPhone}</label>
                 <input
                   name="phone"
                   value={formData.phone}
-                  onChange={handleInputChange}
+                  onChange={(e) => handleContactInput(e, setFormData)}
                   placeholder={t.contactPlaceholderPhone}
                   type="tel"
                   required
@@ -122,7 +97,7 @@ export default function Contact() {
                 <input
                   name="email"
                   value={formData.email}
-                  onChange={handleInputChange}
+                  onChange={(e) => handleContactInput(e, setFormData)}
                   placeholder="name@example.com"
                   type="email"
                   className="w-full border-0 border-b border-border bg-transparent py-2.5 focus:outline-none focus:border-foreground text-sm font-semibold transition-all rounded-none px-0"
@@ -130,13 +105,12 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Message Area */}
             <div className="flex flex-col text-left space-y-2">
               <label className="text-xs font-bold text-muted-foreground/80 uppercase tracking-wider">{t.contactLabelMessage}</label>
               <textarea
                 name="message"
                 value={formData.message}
-                onChange={handleInputChange}
+                onChange={(e) => handleContactInput(e, setFormData)}
                 placeholder={t.contactPlaceholderMessage}
                 required
                 rows={3}
@@ -144,7 +118,6 @@ export default function Contact() {
               />
             </div>
 
-            {/* Submit Button */}
             <div className="flex justify-end pt-4">
               <button
                 type="submit"
@@ -153,10 +126,8 @@ export default function Contact() {
                 {t.contactSubmitBtn} <Send className="w-3.5 h-3.5 text-emerald-800" />
               </button>
             </div>
-
           </form>
         </div>
-
       </div>
     </section>
   );
