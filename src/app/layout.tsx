@@ -3,7 +3,7 @@ import { Inter, Tiro_Bangla } from "next/font/google";
 import { cookies } from "next/headers";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
-import LayoutClient from "@/components/layout/old-LayoutClient";
+import LayoutClient from "@/components/layout/LayoutClient";
 
 const inter = Inter({
   variable: "--font-inter",

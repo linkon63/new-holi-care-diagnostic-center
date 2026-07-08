@@ -3,11 +3,11 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Menu, Phone, Globe } from "lucide-react";
-import { Button } from "@/components/ui/old-Button";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/old-Sheet";
+import { Button } from "@/components/ui/Button";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/Sheet";
 import { useLanguage } from "@/context/LanguageContext";
 import { useScrollPosition } from "@/utils/scroll";
-import { useBooking } from "@/components/layout/old-LayoutClient";
+import { useBooking } from "@/components/layout/LayoutClient";
 import Image from "next/image";
 import { NavLink } from "@/types/navbar";
 

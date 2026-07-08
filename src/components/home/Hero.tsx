@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Star, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import { useBooking } from "@/components/layout/old-LayoutClient";
+import { useBooking } from "@/components/layout/LayoutClient";
 
 export default function Hero() {
   const { t } = useLanguage();

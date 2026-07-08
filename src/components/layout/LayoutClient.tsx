@@ -1,9 +1,9 @@
 "use client";
 
 import { createContext, useContext, useState, ReactNode } from "react";
-import Navbar from "@/components/layout/old-Navbar";
-import Footer from "@/components/layout/old-Footer";
-import AppointmentModal from "@/components/home/old-AppointmentModal";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import AppointmentModal from "@/components/home/AppointmentModal";
 import type { BookingContextType } from "@/types/booking";
 
 const BookingContext = createContext<BookingContextType | null>(null);

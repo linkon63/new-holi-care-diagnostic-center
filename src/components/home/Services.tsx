@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { scrollCarousel } from "@/utils/carousel";
-import { useBooking } from "@/components/layout/old-LayoutClient";
+import { useBooking } from "@/components/layout/LayoutClient";
 
 export default function Services() {
   const scrollRef = useRef<HTMLDivElement>(null);

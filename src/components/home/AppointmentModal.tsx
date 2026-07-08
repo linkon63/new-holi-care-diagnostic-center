@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import { Calendar, Clock, User, Phone, CheckCircle, Shield, Sparkles } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/old-Dialog";
-import { Button } from "@/components/ui/old-Button";
-import { Input } from "@/components/ui/old-Input";
+
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
 import { useLanguage } from "@/context/LanguageContext";
 import type { AppointmentModalProps } from "@/types/appointment";
 import {
@@ -15,6 +15,7 @@ import {
   validateAppointmentForm,
   resetAppointmentForm,
 } from "@/utils/appointment";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/Dialog";
 
 export default function AppointmentModal({ isOpen, onClose, selectedServicePreset = "" }: AppointmentModalProps) {
   const [step, setStep] = useState(1);
