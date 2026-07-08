@@ -1,39 +1,30 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Phone, HeartPulse, Globe } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import { Menu, Phone, Globe } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/Sheet";
 import { useLanguage } from "@/context/LanguageContext";
+import { useScrollPosition } from "@/utils/scroll";
+import { useBooking } from "@/components/layout/LayoutClient";
+import Image from "next/image";
+import { NavLink } from "@/types/navbar";
 
-interface NavbarProps {
-  onBookClick: () => void;
-  onPriceListClick: () => void;
-}
-
-export default function Navbar({ onBookClick, onPriceListClick }: NavbarProps) {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const scrolled = useScrollPosition(20);
   const { language, setLanguage, t } = useLanguage();
+  const { handleBookClick, handlePriceListClick } = useBooking();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navLinks = [
+  const navLinks: NavLink[] = [
     { name: t.home, href: "#hero" },
     { name: t.about, href: "#about" },
-    { name: t.services, href: "#services" },
-    { name: t.priceList, href: "#price-list", onClick: (e: any) => { e.preventDefault(); onPriceListClick(); } },
+    {
+      name: t.priceList,
+      href: "#price-list",
+      onClick: (e) => { e.preventDefault(); handlePriceListClick(); },
+    },
     { name: t.testimonials, href: "#testimonials" },
     { name: t.blog, href: "#blog" },
     { name: t.contact, href: "#contact" },
@@ -48,13 +39,10 @@ export default function Navbar({ onBookClick, onPriceListClick }: NavbarProps) {
             : "bg-transparent py-5"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+        <div className="container">
           <div className="flex justify-between items-center">
-            {/* Logo */}
             <Link href="/" className="flex items-center space-x-2.5 group">
-              <div className="bg-accent text-accent-foreground p-2 rounded-full transition-transform duration-200 group-hover:scale-105">
-                <HeartPulse className="w-5 h-5 text-emerald-800" />
-              </div>
+              <Image src="/logo.jpeg" alt="logo" width={50} height={50} />
               <div className="flex flex-col">
                 <span className="font-black text-xl tracking-tight text-foreground leading-none">
                   {t.logoTitle}
@@ -65,7 +53,6 @@ export default function Navbar({ onBookClick, onPriceListClick }: NavbarProps) {
               </div>
             </Link>
 
-            {/* Center Navigation */}
             <nav className="hidden lg:flex space-x-2 items-center bg-white/40 backdrop-blur-xs border border-border/40 px-3.5 py-1.5 rounded-full shadow-xs">
               {navLinks.map((link) => (
                 <a
@@ -79,9 +66,7 @@ export default function Navbar({ onBookClick, onPriceListClick }: NavbarProps) {
               ))}
             </nav>
 
-            {/* Right Contact button & Language Selector */}
             <div className="hidden lg:flex items-center space-x-4">
-              {/* Sleek Language Switcher */}
               <div className="flex items-center bg-white/50 backdrop-blur-xs border border-border/40 p-0.5 rounded-full shadow-xs">
                 <button
                   onClick={() => setLanguage("bn")}
@@ -106,16 +91,14 @@ export default function Navbar({ onBookClick, onPriceListClick }: NavbarProps) {
               </div>
 
               <button
-                onClick={onBookClick}
+                onClick={() => handleBookClick()}
                 className="px-6 py-2.5 rounded-full border border-foreground/60 text-xs font-bold text-foreground hover:bg-foreground hover:text-background transition-all duration-300 cursor-pointer"
               >
                 {t.contactBtn}
               </button>
             </div>
 
-            {/* Mobile Menu Trigger & Language Selector */}
             <div className="flex items-center space-x-2.5 lg:hidden">
-              {/* Quick Language Toggle for Mobile Header */}
               <button
                 onClick={() => setLanguage(language === "bn" ? "en" : "bn")}
                 className="p-2 bg-white/50 backdrop-blur-xs border border-border text-[10px] font-black text-foreground rounded-full flex items-center justify-center w-9 h-9 shadow-xs hover:bg-muted transition-colors cursor-pointer"
@@ -148,7 +131,6 @@ export default function Navbar({ onBookClick, onPriceListClick }: NavbarProps) {
                       </a>
                     ))}
 
-                    {/* Mobile Language Switcher Inside Drawer */}
                     <div className="pt-4 flex items-center justify-between border-t border-border/65 mt-2 pl-4 pr-2">
                       <span className="text-xs font-black text-muted-foreground flex items-center gap-1.5">
                         <Globe className="w-3.5 h-3.5" /> Language
@@ -181,7 +163,7 @@ export default function Navbar({ onBookClick, onPriceListClick }: NavbarProps) {
                       <Button
                         onClick={() => {
                           setIsOpen(false);
-                          onBookClick();
+                          handleBookClick();
                         }}
                         className="w-full font-bold rounded-full py-6 bg-accent text-accent-foreground hover:bg-accent/90"
                       >

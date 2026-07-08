@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -20,9 +19,8 @@ export default function Blog() {
   }));
 
   return (
-    <section id="blog" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-background">
-      
-      {/* Top Header Layout */}
+    <section id="blog" className="container py-20 bg-background">
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
         <div className="lg:col-span-6 text-left space-y-5">
           <span className="text-sm font-black text-emerald-800 bg-accent/30 px-4 py-1.5 rounded-full uppercase tracking-wider">
@@ -47,11 +45,9 @@ export default function Blog() {
         </div>
       </div>
 
-      {/* Grid of Blog Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {posts.map((post, i) => (
           <div key={i} className="flex flex-col group space-y-4 text-left">
-            {/* Card Image Wrapper */}
             <div className="relative aspect-[16/10] rounded-3xl overflow-hidden bg-muted/10 border border-border/20 shadow-xs">
               <Image
                 src={post.image}
@@ -65,7 +61,6 @@ export default function Blog() {
               </span>
             </div>
 
-            {/* Content info */}
             <div className="space-y-2.5 flex-grow flex flex-col justify-between">
               <div className="space-y-2">
                 <h3 className="font-black text-base text-foreground group-hover:text-emerald-800 transition-colors leading-tight line-clamp-2">
@@ -83,11 +78,9 @@ export default function Blog() {
                 <span className="text-muted-foreground">{post.date}</span>
               </div>
             </div>
-
           </div>
         ))}
       </div>
-
     </section>
   );
 }

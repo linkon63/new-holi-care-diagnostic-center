@@ -1,47 +1,31 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
-import { translations, TranslationType } from "@/lib/translations";
-
-type Language = "bn" | "en";
-
-interface LanguageContextType {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  t: TranslationType;
-}
+import React, { createContext, useContext, useState, useCallback } from "react";
+import { translations } from "@/lang";
+import type { Language, LanguageContextType } from "@/types/language";
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("bn");
-  const [mounted, setMounted] = useState(false);
+function setLanguageCookie(lang: Language) {
+  document.cookie = `lang=${lang};path=/;max-age=31536000;SameSite=Lax`;
+}
 
-  useEffect(() => {
-    const saved = localStorage.getItem("language") as Language;
-    if (saved === "bn" || saved === "en") {
-      setLanguageState(saved);
-    }
-    setMounted(true);
+export function LanguageProvider({
+  children,
+  initialLang,
+}: {
+  children: React.ReactNode;
+  initialLang: Language;
+}) {
+  const [language, setLanguageState] = useState<Language>(initialLang);
+
+  const setLanguage = useCallback((lang: Language) => {
+    setLanguageState(lang);
+    setLanguageCookie(lang);
+    localStorage.setItem("language", lang);
   }, []);
 
-  const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-    if (typeof window !== "undefined") {
-      localStorage.setItem("language", lang);
-    }
-  };
-
   const t = translations[language];
-
-  // Prevent hydration mismatch
-  if (!mounted) {
-    return (
-      <LanguageContext.Provider value={{ language: "bn", setLanguage, t: translations.bn }}>
-        <div style={{ visibility: "hidden" }}>{children}</div>
-      </LanguageContext.Provider>
-    );
-  }
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>

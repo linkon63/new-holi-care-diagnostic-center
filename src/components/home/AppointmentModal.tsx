@@ -1,79 +1,42 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, Calendar, Clock, User, Phone, CheckCircle, Shield, Sparkles } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Calendar, Clock, User, Phone, CheckCircle, Shield, Sparkles } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/Dialog";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
 import { useLanguage } from "@/context/LanguageContext";
-
-interface AppointmentModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  selectedServicePreset?: string;
-}
+import type { AppointmentModalProps } from "@/types/appointment";
+import {
+  AppointmentFormData,
+  servicesList,
+  initialAppointmentForm,
+  handleAppointmentInput,
+  validateAppointmentForm,
+  resetAppointmentForm,
+} from "@/utils/appointment";
 
 export default function AppointmentModal({ isOpen, onClose, selectedServicePreset = "" }: AppointmentModalProps) {
   const [step, setStep] = useState(1);
   const { t, language } = useLanguage();
 
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
+  const [formData, setFormData] = useState<AppointmentFormData>({
+    ...initialAppointmentForm,
     service: selectedServicePreset || "Full Body Checkup",
-    date: "",
-    time: "",
   });
-
-  const servicesList = [
-    "Full Body Checkup",
-    "Executive Health Package",
-    "MRI / CT Scan",
-    "Radiology & Imaging",
-    "Pathology & Blood Tests",
-    "Cardiology Evaluation",
-    "Women's Wellness Package",
-    "Diabetes Care Package",
-  ];
-
-  React.useEffect(() => {
-    if (selectedServicePreset) {
-      setFormData((prev) => ({ ...prev, service: selectedServicePreset }));
-    }
-  }, [selectedServicePreset]);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone || !formData.date || !formData.time) {
-      const fillErr = language === "bn" ? "অনুগ্রহ করে সব প্রয়োজনীয় তথ্য পূরণ করুন।" : "Please fill in all required fields.";
-      alert(fillErr);
-      return;
-    }
-    // Simulate API call
+    if (!validateAppointmentForm(formData, language)) return;
     setStep(2);
   };
 
-  const resetForm = () => {
-    setStep(1);
-    setFormData({
-      name: "",
-      phone: "",
-      email: "",
-      service: selectedServicePreset || "Full Body Checkup",
-      date: "",
-      time: "",
-    });
-    onClose();
+  const handleReset = () => {
+    resetAppointmentForm(setStep, setFormData, onClose, selectedServicePreset);
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={(open) => { if (!open) resetForm(); }}>
+    <Dialog open={isOpen} onOpenChange={(open) => { if (!open) handleReset(); }}>
       <DialogContent className="sm:max-w-[500px] overflow-hidden p-0 rounded-2xl border-border bg-background shadow-2xl">
         {step === 1 ? (
           <form onSubmit={handleSubmit} className="flex flex-col">
@@ -95,7 +58,6 @@ export default function AppointmentModal({ isOpen, onClose, selectedServicePrese
             </div>
 
             <div className="p-6 space-y-4">
-              {/* Patient Name */}
               <div className="space-y-1.5 text-left">
                 <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{t.modalLabelName}</label>
                 <div className="relative">
@@ -103,7 +65,7 @@ export default function AppointmentModal({ isOpen, onClose, selectedServicePrese
                   <Input
                     name="name"
                     value={formData.name}
-                    onChange={handleInputChange}
+                    onChange={(e) => handleAppointmentInput(e, setFormData)}
                     placeholder={t.modalPlaceholderName}
                     required
                     className="pl-10 h-11 border-border focus-visible:ring-primary rounded-xl"
@@ -111,7 +73,6 @@ export default function AppointmentModal({ isOpen, onClose, selectedServicePrese
                 </div>
               </div>
 
-              {/* Phone & Email Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5 text-left">
                   <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{t.modalLabelPhone}</label>
@@ -120,7 +81,7 @@ export default function AppointmentModal({ isOpen, onClose, selectedServicePrese
                     <Input
                       name="phone"
                       value={formData.phone}
-                      onChange={handleInputChange}
+                      onChange={(e) => handleAppointmentInput(e, setFormData)}
                       placeholder={language === "bn" ? "০১৭১১-২২৩৩৪৪" : "01711-223344"}
                       type="tel"
                       required
@@ -134,20 +95,19 @@ export default function AppointmentModal({ isOpen, onClose, selectedServicePrese
                     name="email"
                     type="email"
                     value={formData.email}
-                    onChange={handleInputChange}
+                    onChange={(e) => handleAppointmentInput(e, setFormData)}
                     placeholder="john@example.com"
                     className="h-11 border-border focus-visible:ring-primary rounded-xl"
                   />
                 </div>
               </div>
 
-              {/* Select Service */}
               <div className="space-y-1.5 text-left">
                 <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{t.modalLabelService}</label>
                 <select
                   name="service"
                   value={formData.service}
-                  onChange={handleInputChange}
+                  onChange={(e) => handleAppointmentInput(e, setFormData)}
                   className="w-full h-11 px-3 border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary rounded-xl text-sm transition-colors"
                 >
                   {servicesList.map((service) => (
@@ -158,7 +118,6 @@ export default function AppointmentModal({ isOpen, onClose, selectedServicePrese
                 </select>
               </div>
 
-              {/* Date & Time Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5 text-left">
                   <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{t.modalLabelDate}</label>
@@ -168,7 +127,7 @@ export default function AppointmentModal({ isOpen, onClose, selectedServicePrese
                       name="date"
                       type="date"
                       value={formData.date}
-                      onChange={handleInputChange}
+                      onChange={(e) => handleAppointmentInput(e, setFormData)}
                       required
                       className="pl-10 h-11 border-border focus-visible:ring-primary rounded-xl text-sm"
                     />
@@ -182,7 +141,7 @@ export default function AppointmentModal({ isOpen, onClose, selectedServicePrese
                       name="time"
                       type="time"
                       value={formData.time}
-                      onChange={handleInputChange}
+                      onChange={(e) => handleAppointmentInput(e, setFormData)}
                       required
                       className="pl-10 h-11 border-border focus-visible:ring-primary rounded-xl text-sm"
                     />
@@ -196,7 +155,7 @@ export default function AppointmentModal({ isOpen, onClose, selectedServicePrese
                 <Shield className="w-3.5 h-3.5 text-emerald-500" /> {t.modalShieldText}
               </span>
               <div className="flex gap-3">
-                <Button type="button" variant="outline" onClick={resetForm} className="rounded-xl font-medium">
+                <Button type="button" variant="outline" onClick={handleReset} className="rounded-xl font-medium">
                   {t.modalCancelBtn}
                 </Button>
                 <Button type="submit" className="rounded-xl font-bold bg-primary hover:bg-primary/95 text-white border-0">
@@ -232,7 +191,7 @@ export default function AppointmentModal({ isOpen, onClose, selectedServicePrese
               </div>
             </div>
 
-            <Button onClick={resetForm} className="w-full rounded-xl font-bold py-5 shadow-lg shadow-primary/10 hover:shadow-primary/20 bg-primary text-white border-0">
+            <Button onClick={handleReset} className="w-full rounded-xl font-bold py-5 shadow-lg shadow-primary/10 hover:shadow-primary/20 bg-primary text-white border-0">
               {t.modalSuccessBackBtn}
             </Button>
           </div>

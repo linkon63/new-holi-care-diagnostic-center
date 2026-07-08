@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import { ShieldAlert, Mail, MapPin, Phone, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -11,8 +10,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-foreground text-background/80 border-t border-border mt-auto">
-      {/* Top Banner Info / Socials */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-b border-background/10">
+      <div className="container py-10 border-b border-background/10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center space-x-2">
             <div className="bg-primary text-primary-foreground p-2 rounded-xl">
@@ -47,9 +45,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Middle Links Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-left">
-        {/* Quick Links */}
+      <div className="container py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-left">
         <div>
           <h4 className="text-white font-black text-sm uppercase tracking-wider mb-6">{t.footerQuickLinks}</h4>
           <ul className="space-y-3.5">
@@ -81,7 +77,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Core Departments */}
         <div>
           <h4 className="text-white font-black text-sm uppercase tracking-wider mb-6">{t.footerCoreDepts}</h4>
           <ul className="space-y-3.5">
@@ -103,7 +98,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Operating Hours */}
         <div>
           <h4 className="text-white font-black text-sm uppercase tracking-wider mb-6">{t.footerHours}</h4>
           <ul className="space-y-3.5 text-sm font-semibold">
@@ -126,7 +120,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Contact Info */}
         <div>
           <h4 className="text-white font-black text-sm uppercase tracking-wider mb-6">{t.footerContactUs}</h4>
           <ul className="space-y-4 font-semibold">
@@ -146,10 +139,9 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Copyright */}
       <div className="bg-black/20 border-t border-background/5 py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-xs text-background/40 gap-4">
-          <p>© {currentYear} {t.logoTitle} {t.logoSubtitle}. {t.footerCopyright}</p>
+        <div className="container flex flex-col md:flex-row justify-between items-center text-xs text-background/40 gap-4">
+          <p>&copy; {currentYear} {t.logoTitle} {t.logoSubtitle}. {t.footerCopyright}</p>
           <div className="flex space-x-6 font-semibold">
             <a href="#" className="hover:text-white transition-colors duration-200">{t.footerPrivacy}</a>
             <a href="#" className="hover:text-white transition-colors duration-200">{t.footerTerms}</a>
