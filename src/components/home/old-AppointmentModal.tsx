@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import { Calendar, Clock, User, Phone, CheckCircle, Shield, Sparkles } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/Dialog";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/old-Dialog";
+import { Button } from "@/components/ui/old-Button";
+import { Input } from "@/components/ui/old-Input";
 import { useLanguage } from "@/context/LanguageContext";
 import type { AppointmentModalProps } from "@/types/appointment";
 import {
