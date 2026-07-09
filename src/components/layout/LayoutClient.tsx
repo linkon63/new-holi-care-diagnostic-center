@@ -23,12 +23,9 @@ export default function LayoutClient({ children }: { children: ReactNode }) {
     setIsBookModalOpen(true);
   };
 
-  const handlePriceListClick = () => {
-    handleBookClick("Pathology & Blood Tests");
-  };
 
   return (
-    <BookingContext.Provider value={{ handleBookClick, handlePriceListClick }}>
+    <BookingContext.Provider value={{ handleBookClick }}>
       <div className="flex flex-col min-h-screen bg-background">
         <Navbar />
         <main className="flex-grow">{children}</main>
