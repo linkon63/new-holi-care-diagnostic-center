@@ -3,7 +3,6 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import AppointmentModal from "@/components/home/AppointmentModal";
 import type { BookingContextType } from "@/types/booking";
 
 const BookingContext = createContext<BookingContextType | null>(null);
@@ -30,11 +29,6 @@ export default function LayoutClient({ children }: { children: ReactNode }) {
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
-        <AppointmentModal
-          isOpen={isBookModalOpen}
-          onClose={() => setIsBookModalOpen(false)}
-          selectedServicePreset={selectedService}
-        />
       </div>
     </BookingContext.Provider>
   );

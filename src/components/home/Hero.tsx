@@ -2,14 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Star, ArrowRight, ShieldCheck } from "lucide-react";
+import { Star, ShieldCheck, Calendar, ArrowRight, Stethoscope } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import { useLanguage } from "@/context/LanguageContext";
-import { useBooking } from "@/components/layout/LayoutClient";
 
 const heroSlides = [
   { id: 1, image: "/images/hero/1.webp" },
@@ -19,7 +18,6 @@ const heroSlides = [
 
 export default function Hero() {
   const { t } = useLanguage();
-  const { handleBookClick } = useBooking();
   const { scrollY } = useScroll();
   const parallaxY = useTransform(scrollY, [0, 500], [0, 250]);
 
@@ -83,38 +81,22 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.5 }}
                     className="flex items-center gap-4 flex-wrap pt-2"
                   >
-                    <button
-                      onClick={() => handleBookClick()}
-                      className="px-8 py-4 rounded-full bg-secondary text-white font-black text-sm hover:bg-secondary-hover transition-all duration-200 cursor-pointer shadow-lg shadow-secondary/25"
+                    <Link
+                      href="/appointment"
+                      className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-secondary text-white font-black text-sm hover:bg-secondary-hover hover:-translate-y-0.5 transition-all duration-200 cursor-pointer shadow-lg"
                     >
+                      <Calendar className="w-4 h-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
                       {t.bookBtn}
-                    </button>
+                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
                     <Link
                       href="/departments"
-                      className="flex items-center gap-1.5 text-sm font-bold text-white border border-white/30 rounded-full px-6 py-4 hover:bg-secondary hover:border-secondary transition-all duration-200"
+                      className="group flex items-center gap-1.5 text-sm font-bold text-white border border-white/30 rounded-full px-6 py-4 hover:bg-secondary hover:border-secondary hover:-translate-y-0.5 transition-all duration-200"
                     >
-                      {t.heroDocButton} <ArrowRight className="w-3.5 h-3.5" />
+                      <Stethoscope className="w-4 h-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
+                      {t.heroDocButton}
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
-                  </motion.div>
-
-                  {/* Review and Years Section */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                    className=" hidden md:flex items-center gap-8 md:gap-16 pt-6 border-t border-white/20 max-w-md"
-                  >
-                    <div className="flex flex-col">
-                      <div className="flex items-center gap-1">
-                        <span className="text-3xl font-black">{t.heroReviewRating}</span>
-                        <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                      </div>
-                      <span className="text-xs font-bold text-white/70 mt-1">{t.heroReviewSub}</span>
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-3xl font-black">{t.heroExpYears}</span>
-                      <span className="text-xs font-bold text-white/70 mt-1">{t.heroExpSub}</span>
-                    </div>
                   </motion.div>
                 </div>
               </div>

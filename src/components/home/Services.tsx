@@ -1,113 +1,132 @@
 "use client";
 
-import React, { useRef } from "react";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
-import { useLanguage } from "@/context/LanguageContext";
-import { scrollCarousel } from "@/utils/carousel";
-import { useBooking } from "@/components/layout/LayoutClient";
+import Link from "next/link";
+import { ArrowRight, ArrowLeft } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import { useRef } from "react";
+import servicesData from "@/data/services.json";
+import type { TranslationType } from "@/lang";
+import { cn } from "@/lib/utils";
 
-export default function Services() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const { t } = useLanguage();
-  const { handleBookClick } = useBooking();
-
-  const serviceImages = [
-    "/images/real-images/lab_interior.jpg",
-    "/images/real-images/waiting_room.jpg",
-    "/images/real-images/building_front.jpg"
-  ];
-
-  const services = t.servicesList.map((service, index) => ({
-    ...service,
-    image: serviceImages[index] || "/images/real-images/lab_interior.jpg"
-  }));
+export default function Services({ t, lang }: { t: TranslationType; lang: "en" | "bn" }) {
+  const { servicesSection } = t;
+  const { diagnosticServices } = servicesData;
+  const isBn = lang === "bn";
+  const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
 
   return (
-    <section id="services" className="container py-20">
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
-        <div className="lg:col-span-5 flex items-center">
-          <span className="text-sm font-black text-emerald-800 bg-accent/30 px-4 py-1.5 rounded-full uppercase tracking-wider">
-            {t.servicesTitlePre}
+    <section className="bg-background py-20 font-manrope">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col items-center text-center mb-16 space-y-5">
+          <span className="text-sm text-white bg-primary px-4 py-1.5 rounded-full uppercase tracking-wider">
+            {servicesSection.title}
           </span>
-        </div>
-        <div className="lg:col-span-7 text-left space-y-4">
-          <p className="text-xl sm:text-2xl font-black text-foreground leading-snug">
-            {t.servicesDesc}
+          <h2 className="text-4xl font-bold text-[#034668] tracking-tight leading-tight max-w-2xl">
+            {servicesSection.heading}
+          </h2>
+          <p className="text-[#4A5D6B] text-sm sm:text-base leading-relaxed max-w-2xl">
+            {servicesSection.desc}
           </p>
-          <div>
-            <button
-              onClick={() => handleBookClick()}
-              className="inline-flex items-center gap-2 bg-transparent hover:bg-muted text-foreground font-black text-xs px-5 py-2.5 rounded-full border border-border transition-all cursor-pointer"
-            >
-              {t.servicesAllBtn}
-              <span className="w-5 h-5 bg-accent text-accent-foreground rounded-full flex items-center justify-center">
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="relative">
-        <div
-          ref={scrollRef}
-          className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth pb-8"
-          style={{ scrollbarWidth: "none" }}
-        >
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="flex-shrink-0 w-full sm:w-[420px] md:w-[450px] relative aspect-4/3 rounded-3xl overflow-hidden group shadow-sm bg-muted/10 border border-border/20"
-            >
-              <Image
-                src={service.image}
-                alt={service.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 450px"
-                className="object-cover transition-transform duration-500 group-hover:scale-103"
-              />
-
-              <div className="absolute top-4 left-4 right-4 flex flex-wrap gap-2">
-                {service.badges.map((badge, idx) => (
-                  <span
-                    key={idx}
-                    className="bg-white/40 backdrop-blur-md text-[10px] text-foreground font-bold px-3 py-1 rounded-full shadow-xs border border-white/30"
-                  >
-                    {badge}
-                  </span>
-                ))}
-              </div>
-
-              <div className="absolute bottom-4 left-4 right-4 bg-white/70 backdrop-blur-md rounded-2xl p-5 border border-white/40 flex justify-between items-center shadow-md">
-                <span className="font-black text-base text-foreground">
-                  {service.title}
-                </span>
-                <button
-                  onClick={() => handleBookClick(service.title)}
-                  className="w-8 h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center transition-transform group-hover:translate-x-1 cursor-pointer"
-                >
-                  <ArrowRight className="w-4 h-4 text-emerald-800" />
-                </button>
-              </div>
-            </div>
-          ))}
         </div>
 
-        <div className="flex items-center justify-center space-x-3 mt-6">
-          <button
-            onClick={() => scrollCarousel(scrollRef, "left")}
-            className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-muted text-foreground transition-all cursor-pointer"
+        <div className="relative">
+          <Swiper
+            modules={[Navigation]}
+            spaceBetween={24}
+            slidesPerView={1}
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            navigation={{
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
+            }}
+            onBeforeInit={(swiper) => {
+              if (swiper.params.navigation && typeof swiper.params.navigation === "object") {
+                swiper.params.navigation.prevEl = prevRef.current;
+                swiper.params.navigation.nextEl = nextRef.current;
+              }
+            }}
+            className=""
           >
-            <ArrowLeft className="w-4 h-4" />
-          </button>
+            {diagnosticServices.map((service) => (
+              <SwiperSlide key={service.id}>
+                <div className="group flex flex-col bg-white overflow-hidden transition-all duration-300 h-full">
+                  <div className="relative h-64 w-full overflow-hidden mb-6">
+                    <Image
+                      src={service.image || "/placeholder-service.jpg"}
+                      alt={isBn ? service.title_bn : service.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+
+                  <div className="px-1 flex flex-col flex-1">
+                    <h3 className="text-2xl font-bold text-[#034668] mb-4">
+                      {isBn ? service.title_bn : service.title}
+                    </h3>
+
+                    <p className="text-[#4A5D6B] text-base leading-relaxed mb-6 line-clamp-3">
+                      {isBn ? service.description_bn : service.description}
+                    </p>
+
+                    <div className="mt-auto">
+                      <Link
+                        href={`/services/${service.id}`}
+                        className="inline-flex items-center gap-2 text-secondary font-semibold hover:gap-3 transition-all"
+                      >
+                        SEE MORE <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
           <button
-            onClick={() => scrollCarousel(scrollRef, "right")}
-            className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-muted text-foreground transition-all cursor-pointer"
+            ref={prevRef}
+            className={cn(
+              "absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10",
+              "w-10 h-10 rounded-full bg-white border border-border shadow-md",
+              "flex items-center justify-center text-secondary hover:text-secondary-hover",
+              "transition-all duration-200 hover:shadow-lg hover:-translate-x-3",
+              "hidden lg:flex"
+            )}
+            aria-label="Previous"
           >
-            <ArrowRight className="w-4 h-4" />
+            <ArrowLeft className="w-5 h-5" />
           </button>
+
+          <button
+            ref={nextRef}
+            className={cn(
+              "absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10",
+              "w-10 h-10 rounded-full bg-white border border-border shadow-md",
+              "flex items-center justify-center text-secondary hover:text-secondary-hover",
+              "transition-all duration-200 hover:shadow-lg hover:translate-x-3",
+              "hidden lg:flex"
+            )}
+            aria-label="Next"
+          >
+            <ArrowRight className="w-5 h-5" />
+          </button>
+        </div>
+
+        <div className="flex justify-center mt-12">
+          <Link
+            href="/departments"
+            className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-secondary text-white font-bold text-sm hover:bg-secondary-hover hover:-translate-y-0.5 transition-all duration-200 shadow-lg"
+          >
+            {servicesSection.seeAllBtn}
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
         </div>
       </div>
     </section>

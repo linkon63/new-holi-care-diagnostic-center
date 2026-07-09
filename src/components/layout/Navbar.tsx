@@ -3,16 +3,13 @@
 import { useState, useRef } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
-import { Mail, Phone, Globe, Menu, X, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { Mail, Phone, Globe, Menu, X, Facebook, Twitter, Linkedin, Instagram, Calendar, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import { useBooking } from "@/components/layout/LayoutClient";
 import Image from "next/image";
 import { NavItem } from "@/types/navbar";
 
 export default function Navbar() {
   const { language, setLanguage, t } = useLanguage();
-  const { handleBookClick } = useBooking();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTopBarHidden, setIsTopBarHidden] = useState(false);
   const lastScrollY = useRef(0);
@@ -117,12 +114,14 @@ export default function Navbar() {
 
           {/* Right Actions - Desktop */}
           <div className="hidden lg:flex items-center gap-4">
-            <Button
-              onClick={() => handleBookClick()}
-              className="bg-secondary hover:bg-secondary-hover text-primary-foreground font-bold rounded-lg px-6 py-6 shadow-lg shadow-secondary/25 hover:shadow-xl hover:shadow-secondary/30 hover:scale-[1.02] active:scale-95 transition-all duration-300 cursor-pointer"
+            <Link
+              href="/appointment"
+              className="group inline-flex items-center gap-2 bg-secondary hover:bg-secondary-hover text-primary-foreground font-bold rounded-lg px-6 py-3 hover:-translate-y-0.5 hover:scale-[1.02] active:scale-95 transition-all duration-300 cursor-pointer shadow-lg"
             >
+              <Calendar className="w-4 h-4 animate-bounce" />
               {t.bookBtn}
-            </Button>
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
           </div>
 
           {/* Mobile Hamburger */}
@@ -169,15 +168,15 @@ export default function Navbar() {
                 </button>
               </div>
 
-              <Button
-                onClick={() => {
-                  handleBookClick();
-                  setIsMobileMenuOpen(false);
-                }}
-                className="bg-secondary hover:bg-secondary-hover text-primary-foreground font-bold rounded-lg w-full shadow-lg shadow-secondary/25 transition-all duration-300 py-6 cursor-pointer"
+              <Link
+                href="/appointment"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="group inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary-hover text-primary-foreground font-bold rounded-lg w-full hover:-translate-y-0.5 transition-all duration-300 py-6 cursor-pointer shadow-lg"
               >
+                <Calendar className="w-4 h-4 animate-bounce" />
                 {t.bookBtn}
-              </Button>
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
             </div>
           </div>
         )}

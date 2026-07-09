@@ -104,6 +104,20 @@ const en = {
     }
   ],
 
+  doctorsSection: {
+    title: "Professional Doctors",
+    heading: "Meet Our Expert Medical Team",
+    desc: "Consult with our highly qualified and experienced specialist doctors across various departments, dedicated to providing you with the best healthcare.",
+    seeAllBtn: "See All Doctors",
+  },
+
+  servicesSection: {
+    title: "Our Medical Services",
+    heading: "State-of-the-Art Diagnostic Departments",
+    desc: "We offer a comprehensive range of advanced diagnostic and imaging services with cutting-edge technology and expert medical professionals.",
+    seeAllBtn: "View All Departments",
+  },
+
   blogCategory: "Health Awareness",
   blogHeading: "Health Tips, Medical Advice, and Wellness Articles",
   blogLearnBtn: "Learn More",

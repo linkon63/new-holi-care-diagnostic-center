@@ -1,0 +1,989 @@
+{
+    "diagnosticServices": [
+        {
+            "id": "surgical-maternity",
+            "title": "Surgical & Maternity Services",
+            "title_bn": "সার্জিক্যাল ও ম্যাটারনিটি সার্ভিসেস",
+            "image": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&h=600&fit=crop",
+            "description": "Providing safe and expert surgical care, including maternity services and routine surgical procedures in a controlled environment.",
+            "description_bn": "নিয়ন্ত্রিত পরিবেশে নিরাপদ ও বিশেষজ্ঞ সার্জিক্যাল কেয়ার, ম্যাটারনিটি সার্ভিসেস ও রুটিন সার্জিক্যাল প্রক্রিয়া প্রদান।",
+            "facility": "Modern operation theatre (OT) with high-end surgical equipment and dedicated post-operative care.",
+            "facility_bn": "উন্নত সার্জিক্যাল সরঞ্জাম ও নিবেদিত পোস্ট-অপারেটিভ কেয়ারসহ আধুনিক অপারেশন থিয়েটার (ওটি)।",
+            "keyPoints": [
+                "Cesarean Section (C-Section) Delivery",
+                "Normal Vaginal Delivery",
+                "General Surgery Procedures",
+                "Pre & Post-operative Patient Care",
+                "24/7 Surgical Support & Monitoring"
+            ],
+            "keyPoints_bn": [
+                "সিজারিয়ান সেকশন (সি-সেকশন) ডেলিভারি",
+                "নরমাল ভ্যাজাইনাল ডেলিভারি",
+                "জেনারেল সার্জারি প্রক্রিয়া",
+                "প্রি ও পোস্ট-অপারেটিভ পেশেন্ট কেয়ার",
+                "২৪/৭ সার্জিক্যাল সাপোর্ট ও মনিটরিং"
+            ],
+            "items": [
+                {
+                    "name": "Cesarean Section (C-Section)",
+                    "name_bn": "Cesarean Section (C-Section)",
+                    "price": "Contact for Pricing"
+                },
+                {
+                    "name": "Normal Delivery",
+                    "name_bn": "Normal Delivery",
+                    "price": "Contact for Pricing"
+                },
+                {
+                    "name": "Minor Surgical Procedures",
+                    "name_bn": "Minor Surgical Procedures",
+                    "price": "Contact for Pricing"
+                },
+                {
+                    "name": "Appendectomy",
+                    "name_bn": "Appendectomy",
+                    "price": "Contact for Pricing"
+                },
+                {
+                    "name": "Hernia Surgery",
+                    "name_bn": "Hernia Surgery",
+                    "price": "Contact for Pricing"
+                }
+            ]
+        },
+        {
+            "id": "pathology",
+            "title": "Pathology Services",
+            "title_bn": "প্যাথলজি সার্ভিসেস",
+            "image": "https://images.unsplash.com/photo-1758573467057-99f26217b2ae?w=800&h=600&fit=crop",
+            "description": "Comprehensive lab analysis for precise disease diagnosis through blood, urine, and stool samples.",
+            "description_bn": "রক্ত, প্রস্রাব ও মলের নমুনার মাধ্যমে সঠিক রোগ নির্ণয়ের জন্য সম্পূর্ণ ল্যাব বিশ্লেষণ।",
+            "facility": "Equipped with automated hematology and biochemistry analyzers.",
+            "facility_bn": "স্বয়ংক্রিয় হেমাটোলজি ও বায়োকেমিস্ট্রি বিশ্লেষক দ্বারা সজ্জিত।",
+            "keyPoints": [
+                "Advanced CBC & Cell Counting",
+                "Hormonal & Thyroid Assays",
+                "Serological Testing",
+                "Expert Pathologist Interpretation"
+            ],
+            "keyPoints_bn": [
+                "উন্নত সিবিসি ও সেল কাউন্টিং",
+                "হরমোন ও থাইরয়েড পরীক্ষা",
+                "সেরোলজিক্যাল টেস্টিং",
+                "বিশেষজ্ঞ প্যাথলজিস্ট ব্যাখ্যা"
+            ],
+            "items": [
+                {
+                    "name": "Hb%",
+                    "name_bn": "Hb%",
+                    "price": 200
+                },
+                {
+                    "name": "TC of WBC (TLC), PC, CE",
+                    "name_bn": "TC of WBC (TLC), PC, CE",
+                    "price": 600
+                },
+                {
+                    "name": "ESR",
+                    "name_bn": "ESR",
+                    "price": 200
+                },
+                {
+                    "name": "CBC (Cell Counter)",
+                    "name_bn": "CBC (Cell Counter)",
+                    "price": 600
+                },
+                {
+                    "name": "CBC (Dengue Patient)",
+                    "name_bn": "CBC (Dengue Patient)",
+                    "price": 400
+                },
+                {
+                    "name": "Peripheral Blood Film (MP)",
+                    "name_bn": "Peripheral Blood Film (MP)",
+                    "price": 600
+                },
+                {
+                    "name": "Blood Grouping & Rh Factor",
+                    "name_bn": "Blood Grouping & Rh Factor",
+                    "price": 100
+                },
+                {
+                    "name": "Fasting Blood Suger (FBS)",
+                    "name_bn": "Fasting Blood Suger (FBS)",
+                    "price": 200
+                },
+                {
+                    "name": "PPBS (2 Hrs, After)",
+                    "name_bn": "PPBS (2 Hrs, After)",
+                    "price": 200
+                },
+                {
+                    "name": "Random Blood Suger (RBS)",
+                    "name_bn": "Random Blood Suger (RBS)",
+                    "price": 200
+                },
+                {
+                    "name": "Blood Suger (After 2 Hr. After 75gm Glucose)",
+                    "name_bn": "Blood Suger (After 2 Hr. After 75gm Glucose)",
+                    "price": 200
+                },
+                {
+                    "name": "GTT (3 Sample)",
+                    "name_bn": "GTT (3 Sample)",
+                    "price": 600
+                },
+                {
+                    "name": "Serum Creatinine",
+                    "name_bn": "Serum Creatinine",
+                    "price": 500
+                },
+                {
+                    "name": "Serum Uric Acid",
+                    "name_bn": "Serum Uric Acid",
+                    "price": 450
+                },
+                {
+                    "name": "Lipid Profile",
+                    "name_bn": "Lipid Profile",
+                    "price": 1200
+                },
+                {
+                    "name": "Serum Bilirubin",
+                    "name_bn": "Serum Bilirubin",
+                    "price": 500
+                },
+                {
+                    "name": "SGOT (AST) Total",
+                    "name_bn": "SGOT (AST) Total",
+                    "price": 500
+                },
+                {
+                    "name": "SGPT (ALT)",
+                    "name_bn": "SGPT (ALT)",
+                    "price": 500
+                },
+                {
+                    "name": "Serum Albumin",
+                    "name_bn": "Serum Albumin",
+                    "price": 800
+                },
+                {
+                    "name": "Serum Amylase",
+                    "name_bn": "Serum Amylase",
+                    "price": 1200
+                },
+                {
+                    "name": "Serum Calcium",
+                    "name_bn": "Serum Calcium",
+                    "price": 800
+                },
+                {
+                    "name": "Serum Electrolytes",
+                    "name_bn": "Serum Electrolytes",
+                    "price": 1200
+                },
+                {
+                    "name": "HbA1C",
+                    "name_bn": "HbA1C",
+                    "price": 1200
+                },
+                {
+                    "name": "RA Test (Quntitative)",
+                    "name_bn": "RA Test (Quntitative)",
+                    "price": 1000
+                },
+                {
+                    "name": "VDRL",
+                    "name_bn": "VDRL",
+                    "price": 450
+                },
+                {
+                    "name": "Widal Test",
+                    "name_bn": "Widal Test",
+                    "price": 500
+                },
+                {
+                    "name": "ANA / ANF",
+                    "name_bn": "ANA / ANF",
+                    "price": 1500
+                },
+                {
+                    "name": "Urine Pregnancy Test",
+                    "name_bn": "Urine Pregnancy Test",
+                    "price": 200
+                },
+                {
+                    "name": "Anti-DS-DNA",
+                    "name_bn": "Anti-DS-DNA",
+                    "price": 1500
+                },
+                {
+                    "name": "HIV (Aids Screening)",
+                    "name_bn": "HIV (Aids Screening)",
+                    "price": 500
+                },
+                {
+                    "name": "IGE",
+                    "name_bn": "IGE",
+                    "price": 1200
+                },
+                {
+                    "name": "FT3, FT4",
+                    "name_bn": "FT3, FT4",
+                    "price": 2000
+                },
+                {
+                    "name": "Semen Analysis",
+                    "name_bn": "Semen Analysis",
+                    "price": 700
+                },
+                {
+                    "name": "T3, T4, TSH",
+                    "name_bn": "T3, T4, TSH",
+                    "price": 3000
+                },
+                {
+                    "name": "Prolactin",
+                    "name_bn": "Prolactin",
+                    "price": 1200
+                },
+                {
+                    "name": "Testosterone",
+                    "name_bn": "Testosterone",
+                    "price": 1200
+                },
+                {
+                    "name": "Serum Beta HCG",
+                    "name_bn": "Serum Beta HCG",
+                    "price": 1200
+                },
+                {
+                    "name": "Urinary Beta HCG",
+                    "name_bn": "Urinary Beta HCG",
+                    "price": 1200
+                },
+                {
+                    "name": "Urine For R/E, M/E",
+                    "name_bn": "Urine For R/E, M/E",
+                    "price": 200
+                },
+                {
+                    "name": "S.Ban",
+                    "name_bn": "S.Ban",
+                    "price": 800
+                },
+                {
+                    "name": "S.Urea",
+                    "name_bn": "S.Urea",
+                    "price": 800
+                },
+                {
+                    "name": "Stool R/E",
+                    "name_bn": "Stool R/E",
+                    "price": 300
+                },
+                {
+                    "name": "Stool OBT",
+                    "name_bn": "Stool OBT",
+                    "price": 400
+                },
+                {
+                    "name": "S. Uric Acid",
+                    "name_bn": "S. Uric Acid",
+                    "price": 500
+                },
+                {
+                    "name": "ICT For Malaria",
+                    "name_bn": "ICT For Malaria",
+                    "price": 900
+                },
+                {
+                    "name": "T3",
+                    "name_bn": "T3",
+                    "price": 1000
+                },
+                {
+                    "name": "T4",
+                    "name_bn": "T4",
+                    "price": 1000
+                },
+                {
+                    "name": "TSH",
+                    "name_bn": "TSH",
+                    "price": 1000
+                },
+                {
+                    "name": "Serum Bilrubin profile",
+                    "name_bn": "Serum Bilrubin profile",
+                    "price": 1200
+                },
+                {
+                    "name": "CRP (CLIA)",
+                    "name_bn": "CRP (CLIA)",
+                    "price": 1200
+                },
+                {
+                    "name": "Anti TB-IGG",
+                    "name_bn": "Anti TB-IGG",
+                    "price": 1200
+                },
+                {
+                    "name": "HbsAg Screening",
+                    "name_bn": "HbsAg Screening",
+                    "price": 500
+                },
+                {
+                    "name": "Troponin-1",
+                    "name_bn": "Troponin-1",
+                    "price": 1200
+                },
+                {
+                    "name": "BT & CT",
+                    "name_bn": "BT & CT",
+                    "price": 400
+                },
+                {
+                    "name": "HB Electrophorosis",
+                    "name_bn": "HB Electrophorosis",
+                    "price": 2000
+                },
+                {
+                    "name": "LFT",
+                    "name_bn": "LFT",
+                    "price": 2000
+                },
+                {
+                    "name": "S. Total Protein",
+                    "name_bn": "S. Total Protein",
+                    "price": 1000
+                },
+                {
+                    "name": "S. Iron",
+                    "name_bn": "S. Iron",
+                    "price": 1200
+                },
+                {
+                    "name": "Vitamin D",
+                    "name_bn": "Vitamin D",
+                    "price": 3000
+                },
+                {
+                    "name": "S. Lipase",
+                    "name_bn": "S. Lipase",
+                    "price": 1500
+                },
+                {
+                    "name": "Vitamin D-25",
+                    "name_bn": "Vitamin D-25",
+                    "price": 3000
+                },
+                {
+                    "name": "S. Alkaline Phosphate",
+                    "name_bn": "S. Alkaline Phosphate",
+                    "price": 800
+                },
+                {
+                    "name": "Serum Iron Profile",
+                    "name_bn": "Serum Iron Profile",
+                    "price": 3000
+                },
+                {
+                    "name": "Dope Test",
+                    "name_bn": "Dope Test",
+                    "price": 2000
+                },
+                {
+                    "name": "CBC (Normal)",
+                    "name_bn": "CBC (Normal)",
+                    "price": 300
+                },
+                {
+                    "name": "AMH",
+                    "name_bn": "AMH",
+                    "price": 3000
+                }
+            ]
+        },
+        {
+            "id": "ultrasonogram",
+            "title": "Ultrasonogram (USG)",
+            "title_bn": "আল্ট্রাসনোগ্রাম (ইউএসজি)",
+            "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&h=600&fit=crop",
+            "description": "High-resolution imaging to visualize internal soft tissue structures and organs.",
+            "description_bn": "অভ্যন্তরীণ নরম টিস্যু ও অঙ্গ কল্পনার জন্য উচ্চ-রেজোলিউশন ইমেজিং।",
+            "facility": "Modern ultrasound suite with Doppler capability.",
+            "facility_bn": "ডপলার ক্ষমতাসম্পন্ন আধুনিক আল্ট্রাসাউন্ড স্যুট।",
+            "keyPoints": [
+                "Pregnancy & Pelvic Monitoring",
+                "Abdominal Organ Assessment",
+                "Breast & Testis Screening",
+                "Real-time Imaging"
+            ],
+            "keyPoints_bn": [
+                "গর্ভাবস্থা ও পেলভিক মনিটরিং",
+                "পেটের অঙ্গ মূল্যায়ন",
+                "ব্রেস্ট ও টেস্টিস স্ক্রিনিং",
+                "রিয়েল-টাইম ইমেজিং"
+            ],
+            "items": [
+                {
+                    "name": "USG of Whole Abdomen",
+                    "name_bn": "USG of Whole Abdomen",
+                    "price": 750
+                },
+                {
+                    "name": "USG of Upper Abdomen",
+                    "name_bn": "USG of Upper Abdomen",
+                    "price": 750
+                },
+                {
+                    "name": "USG of Lower Abdomen",
+                    "name_bn": "USG of Lower Abdomen",
+                    "price": 750
+                },
+                {
+                    "name": "USG of KUB. With PVR",
+                    "name_bn": "USG of KUB. With PVR",
+                    "price": 800
+                },
+                {
+                    "name": "USG of KUB. With MCC & PVR",
+                    "name_bn": "USG of KUB. With MCC & PVR",
+                    "price": 1000
+                },
+                {
+                    "name": "USG of Pregnancy Profile",
+                    "name_bn": "USG of Pregnancy Profile",
+                    "price": 750
+                },
+                {
+                    "name": "USG of Pelvic Organ",
+                    "name_bn": "USG of Pelvic Organ",
+                    "price": 750
+                },
+                {
+                    "name": "USG of Both Breast",
+                    "name_bn": "USG of Both Breast",
+                    "price": 1800
+                },
+                {
+                    "name": "USG of Both Testis",
+                    "name_bn": "USG of Both Testis",
+                    "price": 1400
+                },
+                {
+                    "name": "USG of TVS",
+                    "name_bn": "USG of TVS",
+                    "price": 2000
+                },
+                {
+                    "name": "USG of Left Breast",
+                    "name_bn": "USG of Left Breast",
+                    "price": 1100
+                },
+                {
+                    "name": "USG of Right Breast",
+                    "name_bn": "USG of Right Breast",
+                    "price": 1100
+                },
+                {
+                    "name": "USG of Whole Abdomen With PVR",
+                    "name_bn": "USG of Whole Abdomen With PVR",
+                    "price": 1000
+                },
+                {
+                    "name": "USG of Whole Abdomen With MCC + PVR",
+                    "name_bn": "USG of Whole Abdomen With MCC + PVR",
+                    "price": 1000
+                },
+                {
+                    "name": "USG Neck",
+                    "name_bn": "USG Neck",
+                    "price": 1300
+                },
+                {
+                    "name": "USG KUB With PVR",
+                    "name_bn": "USG KUB With PVR",
+                    "price": 800
+                }
+            ]
+        },
+        {
+            "id": "ct-scan",
+            "title": "CT Scan Services",
+            "title_bn": "সিটি স্ক্যান সার্ভিসেস",
+            "image": "https://images.unsplash.com/photo-1758206523830-a5b8afb372a6?w=800&h=600&fit=crop",
+            "description": "Advanced cross-sectional imaging for detailed structural evaluation of body organs.",
+            "description_bn": "শরীরের অঙ্গগুলির বিস্তারিত কাঠামোগত মূল্যায়নের জন্য উন্নত ক্রস-সেকশনাল ইমেজিং।",
+            "facility": "State-of-the-art CT imaging unit with contrast support.",
+            "facility_bn": "কনট্রাস্ট সহায়তাসহ আধুনিক সিটি ইমেজিং ইউনিট।",
+            "keyPoints": [
+                "High-precision Brain & Body Scans",
+                "Contrast-enhanced Imaging",
+                "Detailed Skeletal Evaluation",
+                "Expert Radiology Reports"
+            ],
+            "keyPoints_bn": [
+                "উচ্চ-নির্ভুল মস্তিষ্ক ও বডি স্ক্যান",
+                "কনট্রাস্ট-বর্ধিত ইমেজিং",
+                "বিস্তারিত কঙ্কাল মূল্যায়ন",
+                "বিশেষজ্ঞ রেডিওলজি রিপোর্ট"
+            ],
+            "items": [
+                {
+                    "name": "CT Scan of Brain",
+                    "name_bn": "CT Scan of Brain",
+                    "price": 3500
+                },
+                {
+                    "name": "CT Scan of Brain With Constrst",
+                    "name_bn": "CT Scan of Brain With Constrst",
+                    "price": 4700
+                },
+                {
+                    "name": "CT Scan of PNS",
+                    "name_bn": "CT Scan of PNS",
+                    "price": 4500
+                },
+                {
+                    "name": "CT Scan of Neck",
+                    "name_bn": "CT Scan of Neck",
+                    "price": 5500
+                },
+                {
+                    "name": "CT Scan of CHEST",
+                    "name_bn": "CT Scan of CHEST",
+                    "price": 6000
+                },
+                {
+                    "name": "CT Scan of UPPER ABDOMEN",
+                    "name_bn": "CT Scan of UPPER ABDOMEN",
+                    "price": 7000
+                },
+                {
+                    "name": "CT Scan of UPPER ABDOMEN (HBS, Pancreas, Spleen, Kidneys/lumps)",
+                    "name_bn": "CT Scan of UPPER ABDOMEN (HBS, Pancreas, Spleen, Kidneys/lumps)",
+                    "price": 8000
+                },
+                {
+                    "name": "CT Scan of Lower ABDOMEN",
+                    "name_bn": "CT Scan of Lower ABDOMEN",
+                    "price": 9000
+                },
+                {
+                    "name": "CT Scan of Lower ABDOMEN",
+                    "name_bn": "CT Scan of Lower ABDOMEN",
+                    "price": 7000
+                },
+                {
+                    "name": "Contrast K.U.B (Kidneys Urinary Bladder)",
+                    "name_bn": "Contrast K.U.B (Kidneys Urinary Bladder)",
+                    "price": 8000
+                },
+                {
+                    "name": "Lumbo Sacral Spine-Plain",
+                    "name_bn": "Lumbo Sacral Spine-Plain",
+                    "price": 5500
+                },
+                {
+                    "name": "CT Scan of Chest",
+                    "name_bn": "CT Scan of Chest",
+                    "price": 6000
+                },
+                {
+                    "name": "CT Scan of Lung",
+                    "name_bn": "CT Scan of Lung",
+                    "price": 6000
+                },
+                {
+                    "name": "CT Scan of KUB",
+                    "name_bn": "CT Scan of KUB",
+                    "price": 6000
+                },
+                {
+                    "name": "Contrast A",
+                    "name_bn": "Contrast A",
+                    "price": 1500
+                },
+                {
+                    "name": "Contrast B",
+                    "name_bn": "Contrast B",
+                    "price": 3000
+                }
+            ]
+        },
+        {
+            "id": "digital-xray",
+            "title": "Digital X-Ray Imaging",
+            "title_bn": "ডিজিটাল এক্স-রে ইমেজিং",
+            "image": "https://images.unsplash.com/photo-1769204978162-55d6fdb408ce?w=800&h=600&fit=crop",
+            "description": "Fast and accurate digital radiography for bone and structural diagnostic needs.",
+            "description_bn": "হাড় ও কাঠামোগত ডায়াগনস্টিক প্রয়োজনের জন্য দ্রুত ও নির্ভুল ডিজিটাল রেডিওগ্রাফি।",
+            "facility": "Digital Radiography suite with immediate image processing.",
+            "facility_bn": "তাৎক্ষণিক চিত্র প্রক্রিয়াকরণ সহ ডিজিটাল রেডিওগ্রাফি স্যুট।",
+            "keyPoints": [
+                "Skeletal Fracture Detection",
+                "Chest & Lung Visualization",
+                "Spinal Diagnostics",
+                "High-Resolution Digital Prints"
+            ],
+            "keyPoints_bn": [
+                "কঙ্কালের ফ্র্যাকচার শনাক্তকরণ",
+                "বুক ও ফুসফুস ভিজুয়ালাইজেশন",
+                "মেরুদণ্ড ডায়াগনস্টিকস",
+                "উচ্চ-রেজোলিউশন ডিজিটাল প্রিন্ট"
+            ],
+            "items": [
+                {
+                    "name": "Digital X-Ray PNS O/M View",
+                    "name_bn": "Digital X-Ray PNS O/M View",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Skull B/V",
+                    "name_bn": "Digital X-Ray Skull B/V",
+                    "price": 900
+                },
+                {
+                    "name": "Digital X-Ray Chest A/P View",
+                    "name_bn": "Digital X-Ray Chest A/P View",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Chest L/V (One site Only)",
+                    "name_bn": "Digital X-Ray Chest L/V (One site Only)",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Chest P/A View With Oblique view",
+                    "name_bn": "Digital X-Ray Chest P/A View With Oblique view",
+                    "price": 1200
+                },
+                {
+                    "name": "Digital X-Ray KUB 100%",
+                    "name_bn": "Digital X-Ray KUB 100%",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Cervical Spine (B/V)",
+                    "name_bn": "Digital X-Ray Cervical Spine (B/V)",
+                    "price": 900
+                },
+                {
+                    "name": "Digital X-Ray Dorso Lumbar Spine (B/V)",
+                    "name_bn": "Digital X-Ray Dorso Lumbar Spine (B/V)",
+                    "price": 900
+                },
+                {
+                    "name": "Digital X-Ray Pelvis (A/P) view",
+                    "name_bn": "Digital X-Ray Pelvis (A/P) view",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Pelvis Both S.I Joint (A/P)",
+                    "name_bn": "Digital X-Ray Pelvis Both S.I Joint (A/P)",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Leg B/V (Rt.)",
+                    "name_bn": "Digital X-Ray Leg B/V (Rt.)",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Femus B/V",
+                    "name_bn": "Digital X-Ray Femus B/V",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Thigh Hip B/V",
+                    "name_bn": "Digital X-Ray Thigh Hip B/V",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Ankle Joint B/V (Rt.)",
+                    "name_bn": "Digital X-Ray Ankle Joint B/V (Rt.)",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Wrist (B/V) (Rt.)",
+                    "name_bn": "Digital X-Ray Wrist (B/V) (Rt.)",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Elbow Joint (B/V) (Rt.)",
+                    "name_bn": "Digital X-Ray Elbow Joint (B/V) (Rt.)",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Shoulder Joint Right (B/V)",
+                    "name_bn": "Digital X-Ray Shoulder Joint Right (B/V)",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Hand Right (B/V)",
+                    "name_bn": "Digital X-Ray Hand Right (B/V)",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray IVU",
+                    "name_bn": "Digital X-Ray IVU",
+                    "price": 2200
+                },
+                {
+                    "name": "Digital X-Ray RGU & MCU",
+                    "name_bn": "Digital X-Ray RGU & MCU",
+                    "price": 2400
+                },
+                {
+                    "name": "Digital X-Ray HIP Joint (B/V)",
+                    "name_bn": "Digital X-Ray HIP Joint (B/V)",
+                    "price": 600
+                },
+                {
+                    "name": "X-Ray LT Clavical (B/V)",
+                    "name_bn": "X-Ray LT Clavical (B/V)",
+                    "price": 600
+                },
+                {
+                    "name": "X-Ray RT Clavical (B/V)",
+                    "name_bn": "X-Ray RT Clavical (B/V)",
+                    "price": 600
+                },
+                {
+                    "name": "X-Ray LT Foot (B/V)",
+                    "name_bn": "X-Ray LT Foot (B/V)",
+                    "price": 600
+                },
+                {
+                    "name": "X-Ray RT Foot (B/V)",
+                    "name_bn": "X-Ray RT Foot (B/V)",
+                    "price": 600
+                },
+                {
+                    "name": "X-Ray Cervical Spine (B/V) 1 Flim",
+                    "name_bn": "X-Ray Cervical Spine (B/V) 1 Flim",
+                    "price": 900
+                },
+                {
+                    "name": "X-Ray Cervical Spine (B/V) 1 Flim",
+                    "name_bn": "X-Ray Cervical Spine (B/V) 1 Flim",
+                    "price": 900
+                },
+                {
+                    "name": "X-Ray Neck Lateral View",
+                    "name_bn": "X-Ray Neck Lateral View",
+                    "price": 600
+                },
+                {
+                    "name": "X-Ray HIP Joint B/V (Rt.)",
+                    "name_bn": "X-Ray HIP Joint B/V (Rt.)",
+                    "price": 600
+                },
+                {
+                    "name": "X-Ray HIP Joint B/V (Lt.)",
+                    "name_bn": "X-Ray HIP Joint B/V (Lt.)",
+                    "price": 600
+                },
+                {
+                    "name": "X-Ray Foot. B/V (Rt.)",
+                    "name_bn": "X-Ray Foot. B/V (Rt.)",
+                    "price": 600
+                },
+                {
+                    "name": "X-Ray Foot. B/V (Lt.)",
+                    "name_bn": "X-Ray Foot. B/V (Lt.)",
+                    "price": 600
+                },
+                {
+                    "name": "X-Ray Heel. B/V (Rt.)",
+                    "name_bn": "X-Ray Heel. B/V (Rt.)",
+                    "price": 600
+                },
+                {
+                    "name": "X-Ray Heel. B/V (Lt.)",
+                    "name_bn": "X-Ray Heel. B/V (Lt.)",
+                    "price": 600
+                },
+                {
+                    "name": "X-Ray Both Knee Joint. B/V",
+                    "name_bn": "X-Ray Both Knee Joint. B/V",
+                    "price": 1200
+                },
+                {
+                    "name": "Digital X-Ray Shoulder Joint Left. B/V",
+                    "name_bn": "Digital X-Ray Shoulder Joint Left. B/V",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Hand Left (B/V)",
+                    "name_bn": "Digital X-Ray Hand Left (B/V)",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Ankle Joint (B/V) (Lt.)",
+                    "name_bn": "Digital X-Ray Ankle Joint (B/V) (Lt.)",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Leg (B/V) (Lt.)",
+                    "name_bn": "Digital X-Ray Leg (B/V) (Lt.)",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Knee Joint (B/V) (Lt.)",
+                    "name_bn": "Digital X-Ray Knee Joint (B/V) (Lt.)",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray LT THIGH B/V",
+                    "name_bn": "Digital X-Ray LT THIGH B/V",
+                    "price": 600
+                },
+                {
+                    "name": "X-Ray Pelvis B/V",
+                    "name_bn": "X-Ray Pelvis B/V",
+                    "price": 1200
+                },
+                {
+                    "name": "X-Ray Wrist Joint B/V (Lt.)",
+                    "name_bn": "X-Ray Wrist Joint B/V (Lt.)",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Elbow Joint B/V (Lt.)",
+                    "name_bn": "Digital X-Ray Elbow Joint B/V (Lt.)",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray Arm Joint B/V (Lt.)",
+                    "name_bn": "Digital X-Ray Arm Joint B/V (Lt.)",
+                    "price": 600
+                },
+                {
+                    "name": "Digital X-Ray L/S C/V",
+                    "name_bn": "Digital X-Ray L/S C/V",
+                    "price": 600
+                }
+            ]
+        },
+        {
+            "id": "cardiology",
+            "title": "Cardiac Diagnostic Services",
+            "title_bn": "কার্ডিয়াক ডায়াগনস্টিক সার্ভিসেস",
+            "image": "https://images.unsplash.com/photo-1755287066058-80c68aaaf0e3?w=800&h=600&fit=crop",
+            "description": "Dedicated screening services to evaluate heart rhythm, structure, and electrical activity.",
+            "description_bn": "হৃদস্পন্দন, গঠন ও বৈদ্যুতিক কার্যকলাপ মূল্যায়নের জন্য নিবেদিত স্ক্রিনিং সেবা।",
+            "facility": "Specialized cardiac testing station.",
+            "facility_bn": "বিশেষায়িত কার্ডিয়াক টেস্টিং স্টেশন।",
+            "keyPoints": [
+                "12-Channel ECG Monitoring",
+                "2D/4D Colour Doppler Echocardiogram",
+                "Heart Function Assessment",
+                "Graphical Reporting"
+            ],
+            "keyPoints_bn": [
+                "১২-চ্যানেল ইসিজি মনিটরিং",
+                "২ডি/৪ডি কালার ডপলার ইকোকার্ডিওগ্রাম",
+                "হৃদযন্ত্রের কার্যকারিতা মূল্যায়ন",
+                "গ্রাফিক্যাল রিপোর্টিং"
+            ],
+            "items": [
+                {
+                    "name": "Echocardiogram (4D) Colour Doppler",
+                    "name_bn": "Echocardiogram (4D) Colour Doppler",
+                    "price": 1650
+                },
+                {
+                    "name": "Echocardiogram (2D) Colour Doppler",
+                    "name_bn": "Echocardiogram (2D) Colour Doppler",
+                    "price": 1500
+                },
+                {
+                    "name": "ECG (12 Channel)",
+                    "name_bn": "ECG (12 Channel)",
+                    "price": 400
+                },
+                {
+                    "name": "ECG (Basic)",
+                    "name_bn": "ECG (Basic)",
+                    "price": 250
+                },
+                {
+                    "name": "TMT (Treadmill Test)",
+                    "name_bn": "TMT (Treadmill Test)",
+                    "price": 2500
+                },
+                {
+                    "name": "Holter Monitoring (24 Hrs)",
+                    "name_bn": "Holter Monitoring (24 Hrs)",
+                    "price": 3500
+                },
+                {
+                    "name": "Lipid Profile",
+                    "name_bn": "Lipid Profile",
+                    "price": 1200
+                },
+                {
+                    "name": "Troponin-I",
+                    "name_bn": "Troponin-I",
+                    "price": 1200
+                }
+            ]
+        },
+        {
+            "id": "endoscopy",
+            "title": "Endoscopy Services",
+            "title_bn": "এন্ডোস্কোপি সার্ভেসিস",
+            "image": "https://unsplash.com/photos/XbkpzLGuj2g/download?force=true&w=800&h=600&fit=crop",
+            "description": "Visual examination of the upper digestive tract for diagnostic and screening purposes.",
+            "description_bn": "ডায়াগনস্টিক ও স্ক্রিনিং উদ্দেশ্যে উপরের পাচনতন্ত্রের ভিজুয়াল পরীক্ষা।",
+            "facility": "Advanced sterile endoscopic unit.",
+            "facility_bn": "উন্নত জীবাণুমুক্ত এন্ডোস্কোপিক ইউনিট।",
+            "keyPoints": [
+                "Upper GI Tract Visualization",
+                "Safe Diagnostic Procedure",
+                "High-Definition Visual Monitoring"
+            ],
+            "keyPoints_bn": [
+                "উপরের জিআই ট্র্যাক্ট ভিজুয়ালাইজেশন",
+                "নিরাপদ ডায়াগনস্টিক পদ্ধতি",
+                "হাই-ডেফিনিশন ভিজুয়াল মনিটরিং"
+            ],
+            "items": [
+                {
+                    "name": "Endoscopy Uper GTI",
+                    "name_bn": "Endoscopy Uper GTI",
+                    "price": 1800
+                }
+            ]
+        },
+        {
+            "id": "eeg",
+            "title": "EEG (Brain Diagnostics)",
+            "title_bn": "ইইজি (ব্রেন ডায়াগনস্টিকস)",
+            "image": "https://unsplash.com/photos/R4EFle2r8yA/download?force=true&w=800&h=600&fit=crop",
+            "description": "Monitoring electrical activity of the brain to diagnose neurological conditions.",
+            "description_bn": "স্নায়বিক অবস্থা নির্ণয়ের জন্য মস্তিষ্কের বৈদ্যুতিক কার্যকলাপ পর্যবেক্ষণ।",
+            "facility": "Controlled neurological diagnostic lab.",
+            "facility_bn": "নিয়ন্ত্রিত স্নায়বিক ডায়াগনস্টিক ল্যাব।",
+            "keyPoints": [
+                "Brain Wave Monitoring",
+                "Neurological Assessment",
+                "Accurate Diagnostic Data"
+            ],
+            "keyPoints_bn": [
+                "ব্রেন ওয়েভ মনিটরিং",
+                "স্নায়বিক মূল্যায়ন",
+                "নির্ভুল ডায়াগনস্টিক তথ্য"
+            ],
+            "items": [
+                {
+                    "name": "EEG",
+                    "name_bn": "EEG",
+                    "price": 3000
+                }
+            ]
+        }
+    ]
+}
