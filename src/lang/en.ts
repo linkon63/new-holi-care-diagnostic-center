@@ -2,6 +2,8 @@ const en = {
   home: "Home",
   about: "About Us",
   services: "Services",
+  departments: "Departments",
+  doctors: "Doctors",
   priceList: "Test Price List",
   testimonials: "Testimonials",
   blog: "Blog",
@@ -13,6 +15,8 @@ const en = {
   logoTitle: "New Holy Care",
   logoSubtitle: "Diagnostic Center",
 
+  heroBadge: "Your Health, Our Priority",
+  heroDesc: "Advanced pathology, 3T MRI, CT scan, cardiology & digital X-ray — all under one roof.",
   heroPatientsCount: "10,000+",
   heroPatientsSub: "satisfied patients have received our care",
   heroTitle: "We are always here to ensure your well-being.",
@@ -76,6 +80,28 @@ const en = {
       text: "I did my father's blood tests and MRI here. Their service is extremely professional, and the online report download feature saved us from the hassle of going back. Truly excellent service.",
       rating: "5.0",
     },
+  ],
+
+  whyChooseTitle: "Why Choose Us",
+  whyChooseTitleText: "Your Health, Our Mission",
+  whyChooseDesc: "Excellence in diagnostics — trusted by thousands for accurate reports, modern technology & compassionate care.",
+  whyChooseList: [
+    {
+      title: "Advanced Equipment & Technology",
+      desc: "3T MRI, CT scan, digital X-ray & fully automated pathology lab — ensuring precise diagnosis with state-of-the-art equipment."
+    },
+    {
+      title: "70+ Expert Specialists",
+      desc: "Regular consultation by experienced doctors, pathologists & cardiologists dedicated to providing the best healthcare solutions."
+    },
+    {
+      title: "Same-Day Online Reports",
+      desc: "Fast, accurate reports delivered the same day. Download anytime from anywhere — no need for a second visit."
+    },
+    {
+      title: "24/7 Patient Support",
+      desc: "Pathology collection open 24 hours, comfortable waiting area, and compassionate care available round the clock."
+    }
   ],
 
   blogCategory: "Health Awareness",
@@ -173,6 +199,46 @@ const en = {
   modalSuccessEstimatedTime: "Estimated Time:",
   modalSuccessDeptService: "Department/Service:",
   modalSuccessBackBtn: "Back to Homepage",
+
+  quickApptTitle: "Quick Appointment",
+  quickApptSubtitle: "Book your test in seconds",
+  quickApptForMyself: "For Myself",
+  quickApptForOther: "For Someone Else",
+  quickApptLabelName: "Your Full Name",
+  quickApptPlaceholderName: "e.g., Shakib Ahmed",
+  quickApptLabelPatientName: "Patient's Full Name",
+  quickApptPlaceholderPatientName: "e.g., Fatima Begum",
+  quickApptLabelAge: "Patient's Age",
+  quickApptPlaceholderAge: "e.g., 35",
+  quickApptLabelReason: "Reason for Visit",
+  quickApptPlaceholderReason: "Select reason",
+  quickApptLabelOtherReason: "Please specify your reason",
+  quickApptPlaceholderOtherReason: "Type your reason...",
+  quickApptLabelMobile: "Your Mobile Number",
+  quickApptPlaceholderMobile: "e.g., 01711-223344",
+  quickApptLabelPatientMobile: "Patient's Mobile Number",
+  quickApptPlaceholderPatientMobile: "e.g., 01711-223344",
+  quickApptLabelEmail: "Email (Optional)",
+  quickApptPlaceholderEmail: "e.g., example@email.com",
+  quickApptLabelMessage: "Your Message",
+  quickApptPlaceholderMessage: "Write any special instructions...",
+  quickApptLabelDivision: "Division",
+  quickApptPlaceholderDivision: "Select Division",
+  quickApptLabelDistrict: "District",
+  quickApptPlaceholderDistrict: "Select District",
+  quickApptConfirmBtn: "Confirm Booking",
+  quickApptCallTitle: "Need Help?",
+  quickApptCallDesc: "Call us directly for any query",
+  quickApptSelected: "Selected:",
+  quickApptReasonOptions: [
+    "General Checkup",
+    "Pathology Test",
+    "Imaging / Scan",
+    "Doctor Consultation",
+    "Health Package",
+    "Follow-up Visit",
+    "Other",
+  ],
 };
 
 export default en;

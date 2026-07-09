@@ -2,6 +2,8 @@ const bn = {
   home: "হোম",
   about: "আমাদের সম্পর্কে",
   services: "সেবাসমূহ",
+  departments: "বিভাগসমূহ",
+  doctors: "ডাক্তারগণ",
   priceList: "টেস্টের মূল্য তালিকা",
   testimonials: "মতামত",
   blog: "ব্লগ",
@@ -13,6 +15,8 @@ const bn = {
   logoTitle: "New Holy Care",
   logoSubtitle: "Diagnostic Center",
 
+  heroBadge: "আপনার স্বাস্থ্য, আমাদের অগ্রাধিকার",
+  heroDesc: "আধুনিক প্যাথলজি, ৩টি এমআরআই, সিটি স্ক্যান, কার্ডিওলজি ও ডিজিটাল এক্স-রে — সবকিছু এক ছাদের নিচে।",
   heroPatientsCount: "১০,০০০+",
   heroPatientsSub: "সুস্থ রোগী আমাদের সেবা নিয়েছেন",
   heroTitle: "আপনার সুস্থতা নিশ্চিত করতে আমরা আছি সর্বদা।",
@@ -76,6 +80,28 @@ const bn = {
       text: "আমি আমার বাবার রক্ত পরীক্ষা ও এমআরআই করিয়েছিলাম এখান থেকে। তাদের সার্ভিস অত্যন্ত প্রফেশনাল এবং অনলাইনে রিপোর্ট ডাউনলোডের সুবিধা থাকায় পুনরায় যাওয়ার ঝামেলা পোহাতে হয়নি। অত্যন্ত চমৎকার সেবা।",
       rating: "৫.০",
     },
+  ],
+
+  whyChooseTitle: "কেন আমাদের বেছে নেবেন",
+  whyChooseTitleText: "আপনার স্বাস্থ্য, আমাদের অঙ্গীকার",
+  whyChooseDesc: "নির্ভুল রিপোর্ট, আধুনিক প্রযুক্তি ও মানবিক সেবায় বিশ্বস্ত — হাজারো রোগীর আস্থা অর্জন।",
+  whyChooseList: [
+    {
+      title: "অত্যাধুনিক সরঞ্জাম ও প্রযুক্তি",
+      desc: "৩টি এমআরআই, সিটি স্ক্যান, ডিজিটাল এক্স-রে ও সম্পূর্ণ অটোমেটেড প্যাথলজি ল্যাব — অত্যাধুনিক যন্ত্রপাতি দ্বারা নির্ভুল রোগ নির্ণয় নিশ্চিত করি।"
+    },
+    {
+      title: "৭০+ বিশেষজ্ঞ চিকিৎসক",
+      desc: "অভিজ্ঞ ডাক্তার, প্যাথলজিস্ট ও কার্ডিওলজিস্টদের নিয়মিত কনসালটেশন — আপনার স্বাস্থ্যের জন্য নিবেদিত সেরা চিকিৎসা দল।"
+    },
+    {
+      title: "একই দিনে অনলাইন রিপোর্ট",
+      desc: "দ্রুত ও নির্ভুল রিপোর্ট একই দিনে ডেলিভারি। যেকোনো সময় যেকোনো জায়গা থেকে ডাউনলোড করুন — দ্বিতীয়বার আসার প্রয়োজন নেই।"
+    },
+    {
+      title: "২৪/৭ রোগী সহায়তা",
+      desc: "প্যাথলজি সংগ্রহ ২৪ ঘন্টা খোলা, আরামদায়ক ওয়েটিং এরিয়া এবং চব্বিশ ঘন্টা মানবিক সেবা।"
+    }
   ],
 
   blogCategory: "স্বাস্থ্য সচেতনতা",
@@ -173,6 +199,46 @@ const bn = {
   modalSuccessEstimatedTime: "আনুমানিক সময়:",
   modalSuccessDeptService: "বিভাগ/সেবা:",
   modalSuccessBackBtn: "হোমপেজে ফিরে যান",
+
+  quickApptTitle: "দ্রুত অ্যাপয়েন্টমেন্ট",
+  quickApptSubtitle: "সেকেন্ডের মধ্যে আপনার টেস্ট বুক করুন",
+  quickApptForMyself: "নিজের জন্য",
+  quickApptForOther: "অন্যের জন্য",
+  quickApptLabelName: "আপনার পূর্ণ নাম",
+  quickApptPlaceholderName: "যেমন: সাকিব আহমেদ",
+  quickApptLabelPatientName: "রোগীর পূর্ণ নাম",
+  quickApptPlaceholderPatientName: "যেমন: ফাতিমা বেগম",
+  quickApptLabelAge: "রোগীর বয়স",
+  quickApptPlaceholderAge: "যেমন: ৩৫",
+  quickApptLabelReason: "পরিদর্শনের কারণ",
+  quickApptPlaceholderReason: "কারণ নির্বাচন করুন",
+  quickApptLabelOtherReason: "আপনার কারণ উল্লেখ করুন",
+  quickApptPlaceholderOtherReason: "আপনার কারণ লিখুন...",
+  quickApptLabelMobile: "আপনার মোবাইল নম্বর",
+  quickApptPlaceholderMobile: "যেমন: ০১৭১১-২২৩৩৪৪",
+  quickApptLabelPatientMobile: "রোগীর মোবাইল নম্বর",
+  quickApptPlaceholderPatientMobile: "যেমন: ০১৭১১-২২৩৩৪৪",
+  quickApptLabelEmail: "ইমেইল (ঐচ্ছিক)",
+  quickApptPlaceholderEmail: "যেমন: example@email.com",
+  quickApptLabelMessage: "আপনার বার্তা",
+  quickApptPlaceholderMessage: "যেকোনো বিশেষ নির্দেশনা লিখুন...",
+  quickApptLabelDivision: "বিভাগ",
+  quickApptPlaceholderDivision: "বিভাগ নির্বাচন করুন",
+  quickApptLabelDistrict: "জেলা",
+  quickApptPlaceholderDistrict: "জেলা নির্বাচন করুন",
+  quickApptConfirmBtn: "বুকিং নিশ্চিত করুন",
+  quickApptCallTitle: "সাহায্য দরকার?",
+  quickApptCallDesc: "যেকোনো প্রশ্নে সরাসরি কল করুন",
+  quickApptSelected: "নির্বাচিত:",
+  quickApptReasonOptions: [
+    "সাধারণ চেকআপ",
+    "প্যাথলজি টেস্ট",
+    "ইমেজিং / স্ক্যান",
+    "ডাক্তার পরামর্শ",
+    "স্বাস্থ্য প্যাকেজ",
+    "ফলো-আপ ভিজিট",
+    "অন্যান্য",
+  ],
 };
 
 export default bn;

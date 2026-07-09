@@ -1,19 +1,19 @@
 import Hero from "@/components/home/Hero";
-import AboutStats from "@/components/home/AboutStats";
-import Services from "@/components/home/Services";
-import Testimonials from "@/components/home/Testimonials";
-import Contact from "@/components/home/Contact";
-import Blog from "@/components/home/Blog";
+import QuickAppointment from "@/components/home/QuickAppointment";
+import WhyChoose from "@/components/home/WhyChoose";
+import { cookies } from "next/headers";
+import { translations } from "@/lang";
 
-export default function Home() {
+export default async function Home() {
+  const cookieStore = await cookies();
+  const lang = cookieStore.get("lang")?.value === "en" ? "en" : "bn";
+  const t = translations[lang];
+
   return (
     <>
       <Hero />
-      <AboutStats />
-      <Services />
-      <Testimonials />
-      <Blog />
-      <Contact />
+      <QuickAppointment />
+      <WhyChoose t={t} />
     </>
   );
 }

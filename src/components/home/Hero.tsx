@@ -1,91 +1,127 @@
 "use client";
 
 import Image from "next/image";
-import { Star, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { Star, ArrowRight, ShieldCheck } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
 import { useLanguage } from "@/context/LanguageContext";
 import { useBooking } from "@/components/layout/LayoutClient";
+
+const heroSlides = [
+  { id: 1, image: "/images/hero/1.webp" },
+  { id: 2, image: "/images/hero/2.webp" },
+  { id: 3, image: "/images/hero/3.webp" },
+];
 
 export default function Hero() {
   const { t } = useLanguage();
   const { handleBookClick } = useBooking();
+  const { scrollY } = useScroll();
+  const parallaxY = useTransform(scrollY, [0, 500], [0, 250]);
 
   return (
-    <section id="hero" className="container pt-28 pb-10">
-      <div className="bg-white rounded-[2.5rem] p-8 md:p-12 lg:p-16 relative overflow-hidden border border-border/40">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-
-          <div className="lg:col-span-7 flex flex-col items-start text-left space-y-6 md:space-y-8">
-            <div className="flex items-center space-x-3.5">
-              <div className="flex -space-x-3.5 overflow-hidden">
-                <img
-                  className="inline-block h-9 w-9 rounded-full ring-2 ring-background object-cover"
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150"
-                  alt="Patient 1"
-                />  
-                <img
-                  className="inline-block h-9 w-9 rounded-full ring-2 ring-background object-cover"
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150"
-                  alt="Patient 2"
+    <section id="hero" className="relative container">
+      <Swiper
+        modules={[Autoplay, EffectFade]}
+        effect="fade"
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        loop
+        speed={1000}
+        className="w-full h-[80vh] min-h-0 sm:min-h-[500px] hero-swiper"
+      >
+        {heroSlides.map((slide) => (
+          <SwiperSlide key={slide.id}>
+            <div className="relative w-full h-full overflow-hidden">
+              <motion.div className="absolute inset-0 scale-110" style={{ y: parallaxY }}>
+                <Image
+                  src={slide.image}
+                  alt=""
+                  fill
+                  priority
+                  className="object-cover"
                 />
-                <img
-                  className="inline-block h-9 w-9 rounded-full ring-2 ring-background object-cover"
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150"
-                  alt="Patient 3"
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-black text-foreground leading-none">{t.heroPatientsCount}</span>
-                <span className="text-[11px] font-bold text-muted-foreground mt-0.5">{t.heroPatientsSub}</span>
-              </div>
-            </div>
+              </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
+              <div className="relative z-10 h-full flex items-center px-4 sm:px-6 lg:px-8">
+                <div className="max-w-2xl text-white space-y-6">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                  >
+                    <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold bg-white/15 backdrop-blur-md border border-white/20 text-white/90">
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                      {t.heroBadge}
+                    </span>
+                  </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground tracking-tight leading-[1.1] max-w-2xl">
-              {t.heroTitle}
-            </h1>
+                  <motion.h1
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1]"
+                  >
+                    {t.heroTitle}
+                  </motion.h1>
 
-            <button
-              onClick={() => handleBookClick()}
-              className="px-8 py-4 rounded-full bg-primary text-white text-accent-foreground font-black text-sm hover:bg-accent/90 transition-all duration-200 cursor-pointer shadow-sm hover:shadow"
-            >
-              {t.bookBtn}
-            </button>
+                  <motion.p
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    className="text-base sm:text-lg text-white/80 max-w-xl font-medium"
+                  >
+                    {t.heroDesc}
+                  </motion.p>
 
-            <div className="grid grid-cols-2 gap-8 md:gap-16 pt-8 border-t border-border/70 w-full max-w-md">
-              <div className="flex flex-col">
-                <div className="flex items-center gap-1">
-                  <span className="text-3xl font-black text-foreground">{t.heroReviewRating}</span>
-                  <div className="flex text-amber-500">
-                    <Star className="w-4 h-4 fill-current" />
-                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                    className="flex items-center gap-4 flex-wrap pt-2"
+                  >
+                    <button
+                      onClick={() => handleBookClick()}
+                      className="px-8 py-4 rounded-full bg-secondary text-white font-black text-sm hover:bg-secondary-hover transition-all duration-200 cursor-pointer shadow-lg shadow-secondary/25"
+                    >
+                      {t.bookBtn}
+                    </button>
+                    <Link
+                      href="/departments"
+                      className="flex items-center gap-1.5 text-sm font-bold text-white border border-white/30 rounded-full px-6 py-4 hover:bg-secondary hover:border-secondary transition-all duration-200"
+                    >
+                      {t.heroDocButton} <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </motion.div>
+
+                  {/* Review and Years Section */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                    className=" hidden md:flex items-center gap-8 md:gap-16 pt-6 border-t border-white/20 max-w-md"
+                  >
+                    <div className="flex flex-col">
+                      <div className="flex items-center gap-1">
+                        <span className="text-3xl font-black">{t.heroReviewRating}</span>
+                        <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      </div>
+                      <span className="text-xs font-bold text-white/70 mt-1">{t.heroReviewSub}</span>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-3xl font-black">{t.heroExpYears}</span>
+                      <span className="text-xs font-bold text-white/70 mt-1">{t.heroExpSub}</span>
+                    </div>
+                  </motion.div>
                 </div>
-                <span className="text-xs font-bold text-muted-foreground mt-1">{t.heroReviewSub}</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-3xl font-black text-foreground">{t.heroExpYears}</span>
-                <span className="text-xs font-bold text-muted-foreground mt-1">{t.heroExpSub}</span>
               </div>
             </div>
-          </div>
-
-          <div className="lg:col-span-5 relative w-full h-[380px] sm:h-[480px] rounded-3xl overflow-hidden shadow-sm bg-muted/20">
-            <Image
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
-              alt={t.heroDocAlt}
-              fill
-              priority
-              className="object-cover object-top"
-            />
-            <div className="absolute bottom-6 right-6">
-              <a
-                href="#services"
-                className="bg-white/90 backdrop-blur-md hover:bg-white text-foreground px-5 py-2.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all"
-              >
-                {t.heroDocButton} <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </section>
   );
 }

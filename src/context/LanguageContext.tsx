@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useState, useCallback } from "react";
 import { translations } from "@/lang";
 import type { Language, LanguageContextType } from "@/types/language";
+import { useRouter } from "next/navigation";
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
@@ -18,11 +19,13 @@ export function LanguageProvider({
   initialLang: Language;
 }) {
   const [language, setLanguageState] = useState<Language>(initialLang);
+  const router = useRouter();
 
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
     setLanguageCookie(lang);
     localStorage.setItem("language", lang);
+    router.refresh();
   }, []);
 
   const t = translations[language];
