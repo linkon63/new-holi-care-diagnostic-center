@@ -16,7 +16,7 @@ export const divisionDistricts: Record<string, string[]> = {
     "Lakshmipur", "Chandpur", "Brahmanbaria", "Rangamati",
     "Khagrachhari", "Bandarban",
   ],
-  Rajshahi: [
+  Rajshahi: [ 
     "Rajshahi", "Bogra", "Pabna", "Sirajganj", "Natore",
     "Naogaon", "Joypurhat", "Chapainawabganj",
   ],

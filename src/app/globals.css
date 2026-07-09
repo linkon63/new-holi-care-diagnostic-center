@@ -169,4 +169,12 @@
   .animate-fadeIn {
     animation: fadeIn 0.3s ease-out;
   }
+  @keyframes gentle-wiggle {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-6deg) scale(1.1); }
+    75% { transform: rotate(4deg) scale(1.05); }
+  }
+  .animate-gentle-wiggle {
+    animation: gentle-wiggle 2.5s ease-in-out infinite;
+  }
 }
