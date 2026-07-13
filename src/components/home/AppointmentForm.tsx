@@ -12,11 +12,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { weekDays, monthNames, divisions, divisionDistricts, formatDisplayDate } from "@/utils/quick-appointment";
-
-interface AppointmentFormProps {
-  showHeader?: boolean;
-  onBookClick?: () => void;
-}
+import type { AppointmentFormProps } from "@/types/appointment";
 
 export default function AppointmentForm({ showHeader = true, onBookClick }: AppointmentFormProps) {
   const { t } = useLanguage();
@@ -85,7 +81,7 @@ export default function AppointmentForm({ showHeader = true, onBookClick }: Appo
   const isOtherSelected = formData.reason === reasonOptions[reasonOptions.length - 1];
 
   return (
-    <div className="max-w-6xl mx-auto bg-background border border-border shadow-xl shadow-black/5 overflow-hidden">
+    <div className="max-w-6xl mx-auto bg-background border border-border rounded-sm shadow-xl shadow-black/5 overflow-hidden">
       {showHeader && (
         <div className="relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5" />

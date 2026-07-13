@@ -99,12 +99,12 @@ export default function ProfessionalDoctors({ t, lang }: { t: TranslationType; l
                   </div>
 
                   {/* Image Side */}
-                  <div className="relative w-full h-[400px] md:h-full min-h-[300px]">
+                  <div className="relative w-full h-[400px] md:h-full min-h-[300px] ">
                     <Image
                       src={doctor.image}
                       alt={doctor.name}
                       fill
-                      className="object-cover"
+                      className="object-cover rounded-sm"
                       priority
                     />
                   </div>

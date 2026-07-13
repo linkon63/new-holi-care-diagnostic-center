@@ -1,23 +1,20 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { useRef } from "react";
 import servicesData from "@/data/services.json";
 import type { TranslationType } from "@/lang";
 import { cn } from "@/lib/utils";
+import ServiceCard from "@/components/shared/ServiceCard";
 
 export default function Services({ t, lang }: { t: TranslationType; lang: "en" | "bn" }) {
   const { servicesSection } = t;
   const { diagnosticServices } = servicesData;
   const isBn = lang === "bn";
-  const prevRef = useRef<HTMLButtonElement>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
 
   return (
     <section className="bg-background py-20 font-manrope">
@@ -44,60 +41,38 @@ export default function Services({ t, lang }: { t: TranslationType; lang: "en" |
               1024: { slidesPerView: 3 },
             }}
             navigation={{
-              prevEl: prevRef.current,
-              nextEl: nextRef.current,
-            }}
-            onBeforeInit={(swiper) => {
-              if (swiper.params.navigation && typeof swiper.params.navigation === "object") {
-                swiper.params.navigation.prevEl = prevRef.current;
-                swiper.params.navigation.nextEl = nextRef.current;
-              }
+              prevEl: ".swiper-prev",
+              nextEl: ".swiper-next",
             }}
             className=""
           >
             {diagnosticServices.map((service) => (
               <SwiperSlide key={service.id}>
-                <div className="group flex flex-col bg-white overflow-hidden transition-all duration-300 h-full">
-                  <div className="relative h-64 w-full overflow-hidden mb-6">
-                    <Image
-                      src={service.image || "/placeholder-service.jpg"}
-                      alt={isBn ? service.title_bn : service.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-
-                  <div className="px-1 flex flex-col flex-1">
-                    <h3 className="text-2xl font-bold text-[#034668] mb-4">
-                      {isBn ? service.title_bn : service.title}
-                    </h3>
-
-                    <p className="text-[#4A5D6B] text-base leading-relaxed mb-6 line-clamp-3">
-                      {isBn ? service.description_bn : service.description}
-                    </p>
-
-                    <div className="mt-auto">
-                      <Link
-                        href={`/services/${service.id}`}
-                        className="inline-flex items-center gap-2 text-secondary font-semibold hover:gap-3 transition-all"
-                      >
-                        SEE MORE <ArrowRight className="w-4 h-4" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+                <ServiceCard
+                  image={service.image || "/placeholder-service.jpg"}
+                  title={isBn ? service.title_bn : service.title}
+                  description={isBn ? service.description_bn : service.description}
+                  href={`/departments/${service.id}`}
+                  imageHeight="h-64"
+                  footer={
+                    <span className="inline-flex items-center gap-2 text-secondary font-semibold group-hover:gap-3 transition-all">
+                      SEE MORE <ArrowRight className="w-4 h-4" />
+                    </span>
+                  }
+                />
               </SwiperSlide>
             ))}
           </Swiper>
 
           <button
-            ref={prevRef}
+            type="button"
             className={cn(
+              "swiper-prev",
               "absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10",
               "w-10 h-10 rounded-full bg-white border border-border shadow-md",
               "flex items-center justify-center text-secondary hover:text-secondary-hover",
               "transition-all duration-200 hover:shadow-lg hover:-translate-x-3",
-              "hidden lg:flex"
+              "hidden lg:flex cursor-pointer"
             )}
             aria-label="Previous"
           >
@@ -105,13 +80,14 @@ export default function Services({ t, lang }: { t: TranslationType; lang: "en" |
           </button>
 
           <button
-            ref={nextRef}
+            type="button"
             className={cn(
+              "swiper-next",
               "absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10",
               "w-10 h-10 rounded-full bg-white border border-border shadow-md",
               "flex items-center justify-center text-secondary hover:text-secondary-hover",
               "transition-all duration-200 hover:shadow-lg hover:translate-x-3",
-              "hidden lg:flex"
+              "hidden lg:flex cursor-pointer"
             )}
             aria-label="Next"
           >
