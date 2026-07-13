@@ -40,6 +40,22 @@ const en = {
   aboutStat4Num: "15+",
   aboutStat4Desc: "Advanced pathology, imaging, and other state-of-the-art departments.",
 
+  aboutPage: {
+    heroDesc: "Discover our state-of-the-art diagnostic center serving Nilphamari with advanced pathology, imaging, and cardiology services.",
+    galleryTitle: "Our Center",
+    missionTitle: "Our Mission",
+    missionDesc: "We are dedicated to providing accurate, affordable, and accessible diagnostic services to the people of Nilphamari and surrounding regions. Our goal is to combine modern technology with compassionate care.",
+    value1Title: "Patient First",
+    value1Desc: "Every decision we make starts with the patient's well-being in mind.",
+    value2Title: "Accuracy",
+    value2Desc: "Precision in every test and report is the cornerstone of our practice.",
+    value3Title: "Innovation",
+    value3Desc: "Continuously adopting the latest medical technology and best practices.",
+    bookAppointment: "Book Appointment",
+    ctaTitle: "Ready to book an appointment?",
+    ctaDesc: "Schedule your visit today and experience world-class diagnostic care right here in Nilphamari.",
+  },
+
   servicesTitlePre: "Our Services",
   servicesDesc: "We are committed to ensuring advanced, compassionate, and high-quality healthcare tailored to the specific needs of patients.",
   servicesAllBtn: "All Services",
@@ -224,6 +240,7 @@ const en = {
 
   contactTitlePre: "Contact",
   contactHeading: "We are by your side.",
+  contactHeroDesc: "Have a question or need to book a test? Our team is ready to help you with any inquiries about our diagnostic services.",
   contactSupportTitle: "24/7 Online Support",
   contactSupportSub: "Any questions or feedback",
   contactSupportStatus: "Online",

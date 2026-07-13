@@ -18,10 +18,10 @@ const tiroBangla = Tiro_Bangla({
 
 export const metadata: Metadata = {
   title: {
-    default: "New Holi Care Diagnostic Center | Premium Healthcare Diagnostics & Laboratory",
-    template: "%s | New Holi Care Diagnostic Center",
+    default: "New Holy Care Diagnostic Center | Premium Healthcare Diagnostics & Laboratory",
+    template: "%s | New Holy Care Diagnostic Center",
   },
-  description: "New Holi Care Diagnostic Center offers state-of-the-art pathology, 3T MRI, 128-Slice CT scan, cardiology, and preventive full body health checkup packages.",
+  description: "New Holy Care Diagnostic Center offers state-of-the-art pathology, 3T MRI, 128-Slice CT scan, cardiology, and preventive full body health checkup packages.",
 };
 
 export default async function RootLayout({
