@@ -1,24 +1,23 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { translations } from "@/lang";
-import PriceList from "@/components/prices/PriceList";
+import ContactPage from "@/components/contact/ContactPage";
 
-// Dynamic metadata for test price list page
 export async function generateMetadata(): Promise<Metadata> {
   const cookieStore = await cookies();
   const lang = cookieStore.get("lang")?.value === "en" ? "en" : "bn";
   const t = translations[lang];
 
   return {
-    title: t.priceListPage.title,
-    description: t.priceListPage.desc,
+    title: t.contact,
+    description: t.contactHeading,
   };
 }
-      
-export default async function PriceListPage() {
+
+export default async function Contact() {
   const cookieStore = await cookies();
   const lang = cookieStore.get("lang")?.value === "en" ? "en" : "bn";
   const t = translations[lang];
 
-  return <PriceList t={t} lang={lang} />;
+  return <ContactPage t={t} lang={lang} />;
 }
