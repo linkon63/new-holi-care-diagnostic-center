@@ -13,6 +13,8 @@ export interface DepartmentService {
   image: string;
   description: string;
   description_bn: string;
+  category: string;
+  category_bn: string;
   facility: string;
   facility_bn: string;
   keyPoints: string[];

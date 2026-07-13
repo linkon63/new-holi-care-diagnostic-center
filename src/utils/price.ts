@@ -50,6 +50,54 @@ const categoryColors: Record<string, CategoryColor> = {
     activeBg: "bg-orange-600",
     dot: "bg-orange-500",
   },
+  Cardiology: {
+    border: "border-rose-400",
+    text: "text-rose-700",
+    activeBg: "bg-rose-600",
+    dot: "bg-rose-500",
+  },
+  Neurology: {
+    border: "border-violet-400",
+    text: "text-violet-700",
+    activeBg: "bg-violet-600",
+    dot: "bg-violet-500",
+  },
+  Orthopedics: {
+    border: "border-emerald-400",
+    text: "text-emerald-700",
+    activeBg: "bg-emerald-600",
+    dot: "bg-emerald-500",
+  },
+  Gynecology: {
+    border: "border-pink-400",
+    text: "text-pink-700",
+    activeBg: "bg-pink-600",
+    dot: "bg-pink-500",
+  },
+  Gastroenterology: {
+    border: "border-yellow-400",
+    text: "text-yellow-700",
+    activeBg: "bg-yellow-600",
+    dot: "bg-yellow-500",
+  },
+  Dermatology: {
+    border: "border-sky-400",
+    text: "text-sky-700",
+    activeBg: "bg-sky-600",
+    dot: "bg-sky-500",
+  },
+  Nephrology: {
+    border: "border-lime-400",
+    text: "text-lime-700",
+    activeBg: "bg-lime-600",
+    dot: "bg-lime-500",
+  },
+  Pediatrics: {
+    border: "border-cyan-400",
+    text: "text-cyan-700",
+    activeBg: "bg-cyan-600",
+    dot: "bg-cyan-500",
+  },
 };
 
 // Default color fallback for unknown categories

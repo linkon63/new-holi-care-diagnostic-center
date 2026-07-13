@@ -12,16 +12,16 @@ export default function ServiceCard({
 }: ServiceCardProps) {
   return (
     <Link href={href} className="group block h-full">
-      <div className="bg-white rounded-sm overflow-hidden shadow-sm border-l-4 border-transparent hover:border-secondary hover:shadow-[0_8px_30px_-5px_#00A65133] transition-all duration-300 h-full flex flex-col">
+      <div className="bg-white rounded-sm overflow-hidden shadow-sm border border-border/60 hover:border-secondary hover:shadow-[0_8px_30px_-5px_#00A65133] transition-all duration-300 h-full flex flex-col cursor-pointer">
         {/* Image with brightness + scale + gradient overlay */}
-        <div className={`relative ${imageHeight} w-full overflow-hidden`}>
+        <div className={`relative ${imageHeight} w-full overflow-hidden bg-muted`}>
           <Image
             src={image}
             alt={title}
             fill
             className="object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
 
         {/* Content */}

@@ -1,11 +1,14 @@
 "use client";
 
+import { useState, useMemo } from "react";
 import Link from "next/link";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ChevronRight, Search, ChevronDown, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import servicesData from "@/data/services.json";
 import type { TranslationType } from "@/lang";
 import ServiceCard from "@/components/shared/ServiceCard";
+import PriceCta from "@/components/prices/PriceCta";
+import { extractDepartmentCategories, filterDepartments } from "@/utils/department";
 
 export default function DepartmentList({
   t,
@@ -18,48 +21,83 @@ export default function DepartmentList({
   const { departmentsPage } = t;
   const isBn = lang === "bn";
 
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  const categories = useMemo(
+    () => extractDepartmentCategories(diagnosticServices, isBn),
+    [diagnosticServices, isBn]
+  );
+
+  const filtered = useMemo(
+    () =>
+      filterDepartments(diagnosticServices, activeCategory, searchQuery, isBn),
+    [diagnosticServices, activeCategory, searchQuery, isBn]
+  );
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-muted/30 to-background">
-      {/* Hero Banner */}
-      <div
-        className="relative overflow-hidden bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url('/images/booking-page/booking-appointment.webp')",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative container py-16 md:py-24">
-          <nav className="flex items-center gap-2 text-sm font-semibold text-white/70 mb-4">
-            <Link href="/" className="hover:text-white transition-colors">
-              {t.home}
-            </Link>
-            <ChevronRight className="w-4 h-4" />
-            <span className="text-white">{t.departments}</span>
-          </nav>
-          <div className="max-w-2xl">
-            <span className="text-sm font-bold text-secondary uppercase tracking-widest">
-              {departmentsPage.badge}
-            </span>
-            <h1 className="text-3xl md:text-4xl font-black text-white mt-2 tracking-tight">
-              {departmentsPage.title}
-            </h1>
-            <p className="text-white/80 text-sm md:text-base mt-3 leading-relaxed">
-              {departmentsPage.desc}
-            </p>
+    <div className="min-h-screen bg-primary/5">
+      <div className="container py-10 md:py-14">
+        {/* Breadcrumb */}
+        <nav className="flex items-center gap-2 text-sm font-semibold text-muted-foreground mb-6">
+          <Link href="/" className="hover:text-foreground transition-colors">
+            {t.home}
+          </Link>
+          <ChevronRight className="w-4 h-4" />
+          <span className="text-foreground">{t.departments}</span>
+        </nav>
+
+        {/* Title */}
+        <h1 className="text-3xl md:text-4xl font-black text-primary tracking-tight mb-8">
+          {departmentsPage.title}
+        </h1>
+
+        {/* Search + Category Dropdown */}
+        <div className="flex items-center gap-3 mb-10">
+          <div className="relative flex-1">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <input
+              type="text"
+              placeholder={departmentsPage.searchPlaceholder}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-10 pr-10 py-4 rounded-sm bg-white border border-border/60 text-sm font-medium placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary/50 transition-all"
+            />
+            {searchQuery.length > 0 && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-muted-foreground/20 flex items-center justify-center hover:bg-muted-foreground/30 transition-colors cursor-pointer"
+              >
+                <span className="text-xs text-muted-foreground">&times;</span>
+              </button>
+            )}
+          </div>
+
+          <div className="relative shrink-0">
+            <select
+              value={activeCategory}
+              onChange={(e) => setActiveCategory(e.target.value)}
+              className="appearance-none bg-white border border-border/60 rounded-sm px-4 py-4 pr-9 text-sm font-semibold text-foreground cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary/50 transition-all"
+            >
+              <option value="all">{departmentsPage.allCategories}</option>
+              {categories.map((cat) => (
+                <option key={cat.id} value={cat.id}>
+                  {cat.title}
+                </option>
+              ))}
+            </select>
+            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
           </div>
         </div>
-      </div>
 
-      {/* Department Cards */}
-      <section className="container py-16 md:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {diagnosticServices.map((service, index) => (
+        {/* Department Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+          {filtered.map((service, index) => (
             <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
               viewport={{ once: true }}
             >
               <ServiceCard
@@ -86,7 +124,25 @@ export default function DepartmentList({
             </motion.div>
           ))}
         </div>
-      </section>
+
+        {/* Empty state */}
+        {filtered.length === 0 && (
+          <div className="text-center py-20">
+            <p className="text-muted-foreground text-sm font-medium">
+              {isBn
+                ? "আপনার অনুসন্ধানে কোনো বিভাগ পাওয়া যায়নি।"
+                : "No departments found matching your search."}
+            </p>
+          </div>
+        )}
+
+        {/* CTA Banner */}
+        <PriceCta
+          title={departmentsPage.ctaTitle}
+          desc={departmentsPage.ctaDesc}
+          buttonText={departmentsPage.bookAppointment}
+        />
+      </div>
     </div>
   );
 }
